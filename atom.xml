@@ -5,9 +5,9 @@
   <subtitle>前端博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jirengujack.cn/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2018-01-07T16:01:46.000Z</updated>
-  <id>http://jirengujack.cn/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Harry</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="http://jirengujack.cn/2018/01/07/test/"/>
-    <id>http://jirengujack.cn/2018/01/07/test/</id>
+    <link href="http://yoursite.com/2018/01/07/test/"/>
+    <id>http://yoursite.com/2018/01/07/test/</id>
     <published>2018-01-07T15:48:08.000Z</published>
     <updated>2018-01-07T16:01:46.000Z</updated>
     
@@ -39,14 +39,14 @@
     
     </summary>
     
-      <category term="web前端" scheme="http://jirengujack.cn/categories/web%E5%89%8D%E7%AB%AF/"/>
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="test" scheme="http://jirengujack.cn/tags/test/"/>
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
     
-      <category term="html" scheme="http://jirengujack.cn/tags/html/"/>
+      <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
-      <category term="vue" scheme="http://jirengujack.cn/tags/vue/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
