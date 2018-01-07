@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "瓦力"
+keywords: "Harry"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -24,8 +24,8 @@ rss:
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories
-  #about: /about
+  categories: /categories
+  about: /about
   archives: /archives
   tags: /tags
   #commonweal: /404.html
@@ -397,3 +397,10 @@ version: 5.0.1
 reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
 wechatpay: http://7xs23g.com1.z0.glb.clouddn.com/wechatPay.PNG
 alipay: http://7xs23g.com1.z0.glb.clouddn.com/alipay.JPG
+
+# Post wordcount display settings
+# Dependencies: https://github.com/willin/hexo-wordcount
+post_wordcount:
+  item_text: true
+  wordcount: true
+  min2read: true
