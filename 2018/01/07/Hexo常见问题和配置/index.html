@@ -98,7 +98,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/01/09/5a53a76ea4c8a.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/09/5a53a8565d7f8.png">
-<meta property="og:updated_time" content="2018-01-08T17:21:57.000Z">
+<meta property="og:updated_time" content="2018-01-08T18:18:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo常见问题和配置">
 <meta name="twitter:description" content="异地管理博客如果使用多台电脑发布更新博客，我自己的做法是在同一个远程仓库建立两个分支：  master分支，用户保存hexo里的public文件里面的内容，也就是hexo生成的博客文件。  hexo分支，用户保存所有的hexo的源文件【可能会暴露源文件secret key】 ​   基础假设 已经搭建好hexo 已经配置好next主题 已经关联了github，可以使用github直接访问博客首页">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  562
+                  603
                 </span>
               
 
@@ -432,9 +432,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;push to hexo&apos;</span><br><span class="line">git push origin master:hexo</span><br></pre></td></tr></table></figure>
 <p>这时候你可以看到远程仓库已经有本地的hexo源文件。以后每次发布博客之后就可以操作以上代码更新本地源文件到远程仓库的hexo分支了。</p>
 <p>提醒：如操作过程中有其他报错小问题，需要自行google，这里只是说一个大概思路。</p>
-<h3 id="next主题下载"><a href="#next主题下载" class="headerlink" title="next主题下载"></a>next主题下载</h3><p>我使用的是以下代码，防止不能同步到远程仓库hexo，但是具体原因不知道，就是成功了。上方直接删除thems/next 下面的.git 文件我自己没有尝试，不知道有没有起作用</p>
+<h3 id="next主题同步到远程仓库"><a href="#next主题同步到远程仓库" class="headerlink" title="next主题同步到远程仓库"></a>next主题同步到远程仓库</h3><p>我使用的是以下代码，可以同步到远程仓库hexo，但是具体原因不知道，就是成功了。上方提到的直接删除thems/next 下面的.git 文件我自己没有尝试，不知道有没有起作用</p>
 <p>进入hexo根目录执行以下代码即可创建next主题：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>使用这种方式下载next主题就可以直接同步提交到远程仓库，但是后期更新的还不懂。</p>
 
       
     </div>
@@ -454,7 +455,7 @@
   <p><span>本文标题:</span><a href="/2018/01/07/Hexo常见问题和配置/">Hexo常见问题和配置</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Harry 的个人博客">Harry</a></p>
   <p><span>发布时间:</span>2018年01月07日 - 23:01</p>
-  <p><span>最后更新:</span>2018年01月09日 - 01:01</p>
+  <p><span>最后更新:</span>2018年01月09日 - 02:01</p>
   <p><span>原始链接:</span><a href="/2018/01/07/Hexo常见问题和配置/" title="Hexo常见问题和配置">http://jirengujack.cn/2018/01/07/Hexo常见问题和配置/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/01/07/Hexo常见问题和配置/"  aria-label="复制成功！"></i></span>
   </p>
@@ -479,6 +480,35 @@
     
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢指导点评，要不打赏点？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate-wechat.png" alt="Harry 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate-alipay.png" alt="Harry 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -636,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异地管理博客"><span class="nav-number">1.</span> <span class="nav-text">异地管理博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础假设"><span class="nav-number">1.1.</span> <span class="nav-text">基础假设</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建本地git仓库"><span class="nav-number">1.2.</span> <span class="nav-text">创建本地git仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建远程仓库的分支"><span class="nav-number">1.3.</span> <span class="nav-text">创建远程仓库的分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push本地源文件到远程仓库hexo分支"><span class="nav-number">1.4.</span> <span class="nav-text">push本地源文件到远程仓库hexo分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题下载"><span class="nav-number">2.</span> <span class="nav-text">next主题下载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异地管理博客"><span class="nav-number">1.</span> <span class="nav-text">异地管理博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础假设"><span class="nav-number">1.1.</span> <span class="nav-text">基础假设</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建本地git仓库"><span class="nav-number">1.2.</span> <span class="nav-text">创建本地git仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建远程仓库的分支"><span class="nav-number">1.3.</span> <span class="nav-text">创建远程仓库的分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push本地源文件到远程仓库hexo分支"><span class="nav-number">1.4.</span> <span class="nav-text">push本地源文件到远程仓库hexo分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题同步到远程仓库"><span class="nav-number">2.</span> <span class="nav-text">next主题同步到远程仓库</span></a></li></ol></div>
             
 
           </div>
@@ -687,7 +717,7 @@
 </div>
 <div class="theme-info">
   
-  <span class="post-count">博客全站共562字</span>
+  <span class="post-count">博客全站共603字</span>
 </div>
         
 

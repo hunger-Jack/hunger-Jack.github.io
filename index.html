@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  562
+                  603
                 </span>
               
 
@@ -432,9 +432,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;push to hexo&apos;</span><br><span class="line">git push origin master:hexo</span><br></pre></td></tr></table></figure>
 <p>这时候你可以看到远程仓库已经有本地的hexo源文件。以后每次发布博客之后就可以操作以上代码更新本地源文件到远程仓库的hexo分支了。</p>
 <p>提醒：如操作过程中有其他报错小问题，需要自行google，这里只是说一个大概思路。</p>
-<h3 id="next主题下载"><a href="#next主题下载" class="headerlink" title="next主题下载"></a>next主题下载</h3><p>我使用的是以下代码，防止不能同步到远程仓库hexo，但是具体原因不知道，就是成功了。上方直接删除thems/next 下面的.git 文件我自己没有尝试，不知道有没有起作用</p>
+<h3 id="next主题同步到远程仓库"><a href="#next主题同步到远程仓库" class="headerlink" title="next主题同步到远程仓库"></a>next主题同步到远程仓库</h3><p>我使用的是以下代码，可以同步到远程仓库hexo，但是具体原因不知道，就是成功了。上方提到的直接删除thems/next 下面的.git 文件我自己没有尝试，不知道有没有起作用</p>
 <p>进入hexo根目录执行以下代码即可创建next主题：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>使用这种方式下载next主题就可以直接同步提交到远程仓库，但是后期更新的还不懂。</p>
 
           
         
@@ -617,7 +618,7 @@
 </div>
 <div class="theme-info">
   
-  <span class="post-count">博客全站共562字</span>
+  <span class="post-count">博客全站共603字</span>
 </div>
         
 
