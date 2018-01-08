@@ -91,7 +91,7 @@
 <meta name="description" content="前端|自学|">
 <meta property="og:type" content="website">
 <meta property="og:title" content="魔尊重楼">
-<meta property="og:url" content="http://jirengujack.cn/tags/html/index.html">
+<meta property="og:url" content="http://jirengujack.cn/tags/Hexo/index.html">
 <meta property="og:site_name" content="魔尊重楼">
 <meta property="og:description" content="前端|自学|">
 <meta property="og:locale" content="zh-Hans">
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://jirengujack.cn/tags/html/"/>
+  <link rel="canonical" href="http://jirengujack.cn/tags/Hexo/"/>
 
 
 
 
 
-  <title>标签: html | 魔尊重楼</title>
+  <title>标签: Hexo | 魔尊重楼</title>
   
 
 
@@ -263,7 +263,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>html<small>标签</small>
+        <h1>Hexo<small>标签</small>
         </h1>
       </div>
 
@@ -275,9 +275,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/01/07/test/" itemprop="url">
+            <a class="post-title-link" href="/2018/01/07/Hexo常见问题和配置/" itemprop="url">
               
-                <span itemprop="name">test</span>
+                <span itemprop="name">Hexo常见问题和配置</span>
               
             </a>
         
@@ -445,7 +445,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共35字</span>
+  <span class="post-count">博客全站共562字</span>
 </div>
         
 
@@ -581,6 +581,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'h4ccHlvwmpUumg44zvNKwL3x-gzGzoHsz',
+        appKey: 'UIP7AiBtXuHPhk7RqTAS4zWz',
+        placeholder: '自学中，多多评论指出错误，谢谢啦~~~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
