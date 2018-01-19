@@ -10,6 +10,7 @@ tags:
 ### 使用html2canvas截图
 1. 进入[官网](http://html2canvas.hertzen.com/)，可以看到如下截图，点开箭头位置文件，在自己项目下建立一个js文件，把里面内容拷贝进去。
 ![Snip20180112_12.png](https://i.loli.net/2018/01/12/5a57aa8755285.png)
+<!--more-->
 2. 在你想要截图的页面添加一个按钮，添加click事件，写入以下代码：
 ~~~js
 html2canvas(document.querySelector("#capture")).then(canvas => {
