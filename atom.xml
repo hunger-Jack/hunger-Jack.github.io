@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jirengujack.cn/"/>
-  <updated>2018-01-19T19:09:27.000Z</updated>
+  <updated>2018-01-20T16:53:34.000Z</updated>
   <id>http://jirengujack.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git更新仓库名称</title>
+    <link href="http://jirengujack.cn/2018/01/21/git%E6%9B%B4%E6%96%B0%E4%BB%93%E5%BA%93%E5%90%8D%E7%A7%B0/"/>
+    <id>http://jirengujack.cn/2018/01/21/git更新仓库名称/</id>
+    <published>2018-01-20T16:46:31.000Z</published>
+    <updated>2018-01-20T16:53:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="更改github仓库名称"><a href="#更改github仓库名称" class="headerlink" title="更改github仓库名称"></a>更改github仓库名称</h1><p><img src="https://i.loli.net/2018/01/21/5a6373473901c.png" alt="Snip20180121_1.png"><br>按照以上图片截图位置，输入新的名称，点击改名即可。</p><h1 id="在本地仓库关联"><a href="#在本地仓库关联" class="headerlink" title="在本地仓库关联"></a>在本地仓库关联</h1><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">remote </span><span class="built_in">set-url</span> <span class="string">origin </span><span class="string">git@</span><span class="string">github.</span><span class="string">com:username/</span><span class="string">newrepo.</span><span class="string">git</span></span><br></pre></td></tr></table></figure><p>在本地仓库根目录下，输入以上命令就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;更改github仓库名称&quot;&gt;&lt;a href=&quot;#更改github仓库名称&quot; class=&quot;headerlink&quot; title=&quot;更改github仓库名称&quot;&gt;&lt;/a&gt;更改github仓库名称&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2
+      
+    
+    </summary>
+    
+      <category term="常见问题总结" scheme="http://jirengujack.cn/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="git" scheme="http://jirengujack.cn/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/git/"/>
+    
+    
+      <category term="重命名仓库名称" scheme="http://jirengujack.cn/tags/%E9%87%8D%E5%91%BD%E5%90%8D%E4%BB%93%E5%BA%93%E5%90%8D%E7%A7%B0/"/>
+    
+      <category term="git" scheme="http://jirengujack.cn/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>git本地关联远程仓库</title>
@@ -38,9 +67,9 @@
       <category term="git" scheme="http://jirengujack.cn/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/git/"/>
     
     
-      <category term="git init" scheme="http://jirengujack.cn/tags/git-init/"/>
-    
       <category term="git" scheme="http://jirengujack.cn/tags/git/"/>
+    
+      <category term="git init" scheme="http://jirengujack.cn/tags/git-init/"/>
     
   </entry>
   
@@ -186,13 +215,13 @@
     <link href="http://jirengujack.cn/2018/01/07/Hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
     <id>http://jirengujack.cn/2018/01/07/Hexo常见问题和配置/</id>
     <published>2018-01-07T15:48:08.000Z</published>
-    <updated>2018-01-09T19:06:50.000Z</updated>
+    <updated>2018-01-20T17:18:36.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="异地管理博客"><a href="#异地管理博客" class="headerlink" title="异地管理博客"></a>异地管理博客</h3><p>如果使用多台电脑发布更新博客，我自己的做法是在同一个远程仓库建立两个分支：</p><ol><li>master分支，用户保存hexo里的public文件里面的内容，也就是hexo生成的博客文件。</li><li>hexo分支，用户保存所有的hexo的源文件【可能会暴露源文件secret key】</li></ol><a id="more"></a><h4 id="基础假设"><a href="#基础假设" class="headerlink" title="基础假设"></a>基础假设</h4><ol><li>已经搭建好hexo</li><li>已经配置好next主题</li><li>已经关联了github，可以使用github直接访问博客首页</li><li>具体的简单操作没有截图，如果不会自行搜索即可找到答案</li></ol><h4 id="创建本地git仓库"><a href="#创建本地git仓库" class="headerlink" title="创建本地git仓库"></a>创建本地git仓库</h4><p>首先需要删除next下面的git配置，否则无法把next主题文件同步到远程仓库，进入到hexo根目录执行以下代码：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -fr .<span class="regexp">/themes/</span><span class="keyword">next</span><span class="regexp">/.git/</span></span><br></pre></td></tr></table></figure></p><p>然后初始化hexo根目录<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure></p><p>创建一个.gitignore文件，放在hexo根目录，内容为：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure></p><h4 id="创建远程仓库的分支"><a href="#创建远程仓库的分支" class="headerlink" title="创建远程仓库的分支"></a>创建远程仓库的分支</h4><p>目前远程仓库已经有一个默认的master分支，然后自己创建一个hexo分支，并且把hexo设置为默认分支，方便手动操作push本地源文件。<br><img src="https://i.loli.net/2018/01/09/5a53a76ea4c8a.png" alt=""><br><img src="https://i.loli.net/2018/01/09/5a53a8565d7f8.png" alt=""></p><h4 id="push本地源文件到远程仓库hexo分支"><a href="#push本地源文件到远程仓库hexo分支" class="headerlink" title="push本地源文件到远程仓库hexo分支"></a>push本地源文件到远程仓库hexo分支</h4><p>进入到hexo根目录，使用终端打开一次执行以下代码：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line"><span class="bash">git commit -m <span class="string">'push to hexo'</span></span></span><br><span class="line"><span class="bash">git push origin master:hexo</span></span><br></pre></td></tr></table></figure></p><p>这时候你可以看到远程仓库已经有本地的hexo源文件。以后每次发布博客之后就可以操作以上代码更新本地源文件到远程仓库的hexo分支了。<br>提醒：如操作过程中有其他报错小问题，需要自行google，这里只是说一个大概思路。</p><h3 id="next主题同步到远程仓库"><a href="#next主题同步到远程仓库" class="headerlink" title="next主题同步到远程仓库"></a>next主题同步到远程仓库</h3><p>我使用的是以下代码，可以同步到远程仓库hexo，但是具体原因不知道，就是成功了。上方提到的直接删除thems/next 下面的.git 文件我自己没有尝试，不知道有没有起作用<br>进入hexo根目录执行以下代码即可创建next主题：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure></p><p>使用这种方式下载next主题就可以直接同步提交到远程仓库，但是后期更新的还不懂。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="异地管理博客"><a href="#异地管理博客" class="headerlink" title="异地管理博客"></a>异地管理博客</h1><p>如果使用多台电脑发布更新博客，我自己的做法是在同一个远程仓库建立两个分支：</p><ol><li>master分支，用户保存hexo里的public文件里面的内容，也就是hexo生成的博客文件。</li><li>hexo分支，用户保存所有的hexo的源文件【可能会暴露源文件secret key】</li></ol><a id="more"></a><h2 id="基础假设"><a href="#基础假设" class="headerlink" title="基础假设"></a>基础假设</h2><ol><li>已经搭建好hexo</li><li>已经配置好next主题</li><li>已经关联了github，可以使用github直接访问博客首页</li><li>具体的简单操作没有截图，如果不会自行搜索即可找到答案</li></ol><h2 id="创建本地git仓库"><a href="#创建本地git仓库" class="headerlink" title="创建本地git仓库"></a>创建本地git仓库</h2><p>首先需要删除next下面的git配置，否则无法把next主题文件同步到远程仓库，进入到hexo根目录执行以下代码：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -fr .<span class="regexp">/themes/</span><span class="keyword">next</span><span class="regexp">/.git/</span></span><br></pre></td></tr></table></figure></p><p>然后初始化hexo根目录<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure></p><p>创建一个.gitignore文件，放在hexo根目录，内容为：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure></p><h2 id="创建远程仓库的分支"><a href="#创建远程仓库的分支" class="headerlink" title="创建远程仓库的分支"></a>创建远程仓库的分支</h2><p>目前远程仓库已经有一个默认的master分支，然后自己创建一个hexo分支，并且把hexo设置为默认分支，方便手动操作push本地源文件。<br><img src="https://i.loli.net/2018/01/09/5a53a76ea4c8a.png" alt=""><br><img src="https://i.loli.net/2018/01/09/5a53a8565d7f8.png" alt=""></p><h2 id="push本地源文件到远程仓库hexo分支"><a href="#push本地源文件到远程仓库hexo分支" class="headerlink" title="push本地源文件到远程仓库hexo分支"></a>push本地源文件到远程仓库hexo分支</h2><p>进入到hexo根目录，使用终端打开一次执行以下代码：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line"><span class="bash">git commit -m <span class="string">'push to hexo'</span></span></span><br><span class="line"><span class="bash">git push origin master:hexo</span></span><br></pre></td></tr></table></figure></p><p>这时候你可以看到远程仓库已经有本地的hexo源文件。以后每次发布博客之后就可以操作以上代码更新本地源文件到远程仓库的hexo分支了。<br>提醒：如操作过程中有其他报错小问题，需要自行google，这里只是说一个大概思路。</p><h1 id="next主题同步到远程仓库"><a href="#next主题同步到远程仓库" class="headerlink" title="next主题同步到远程仓库"></a>next主题同步到远程仓库</h1><p>我使用的是以下代码，可以同步到远程仓库hexo，但是具体原因不知道，就是成功了。上方提到的直接删除thems/next 下面的.git 文件我自己没有尝试，不知道有没有起作用<br>进入hexo根目录执行以下代码即可创建next主题：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure></p><p>使用这种方式下载next主题就可以直接同步提交到远程仓库，但是后期更新的还不懂。</p><h1 id="发布博客之后显示404"><a href="#发布博客之后显示404" class="headerlink" title="发布博客之后显示404"></a>发布博客之后显示404</h1><p>我自己遇到的问题是我已经绑定自己的域名，发布了一个项目之后打开报404，这个项目不在博客项目的同一个目录，我的博客网址是：<a href="http://www.jirengujack.cn" target="_blank" rel="noopener">http://www.jirengujack.cn</a>，此项目的路径为：<a href="http://www.jirengujack.cn/vue-mobile-question/dist" target="_blank" rel="noopener">http://www.jirengujack.cn/vue-mobile-question/dist</a>，下方截图是我github目前文件分布：</p><p><img src="https://i.loli.net/2018/01/21/5a6377612f163.png" alt="1.png"></p><p>搞了半天打开<a href="http://www.jirengujack.cn/vue-mobile-question/dist" target="_blank" rel="noopener">http://www.jirengujack.cn/vue-mobile-question/dist</a>这个路径下的文件都是404，最后发现没有设置github pages，具体步骤看一下截图：</p><p><img src="https://i.loli.net/2018/01/21/5a63786287920.png" alt="2.png"><br><img src="https://i.loli.net/2018/01/21/5a637862931a5.png" alt="3.png"><br><img src="https://i.loli.net/2018/01/21/5a6378988403d.png" alt="4.png"></p><p>以上操作之后，我的项目就可正常打开了，好欣慰啊，还得靠自己！哈哈哈哈<del>~</del><br>这个是我自己第一个移动端小demo，多多批评指导，参考了网上的一个开源项目，学习中~~<br>项目源码<a href="https://github.com/hunger-Jack/vue-mobile-question/" target="_blank" rel="noopener">https://github.com/hunger-Jack/vue-mobile-question/</a><br>在线预览<a href="http://www.jirengujack.cn/vue-mobile-question/dist/" target="_blank" rel="noopener">http://www.jirengujack.cn/vue-mobile-question/dist/</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;异地管理博客&quot;&gt;&lt;a href=&quot;#异地管理博客&quot; class=&quot;headerlink&quot; title=&quot;异地管理博客&quot;&gt;&lt;/a&gt;异地管理博客&lt;/h3&gt;&lt;p&gt;如果使用多台电脑发布更新博客，我自己的做法是在同一个远程仓库建立两个分支：&lt;/p&gt;
+      &lt;h1 id=&quot;异地管理博客&quot;&gt;&lt;a href=&quot;#异地管理博客&quot; class=&quot;headerlink&quot; title=&quot;异地管理博客&quot;&gt;&lt;/a&gt;异地管理博客&lt;/h1&gt;&lt;p&gt;如果使用多台电脑发布更新博客，我自己的做法是在同一个远程仓库建立两个分支：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;master分支，用户保存hexo里的public文件里面的内容，也就是hexo生成的博客文件。&lt;/li&gt;
 &lt;li&gt;hexo分支，用户保存所有的hexo的源文件【可能会暴露源文件secret key】&lt;/li&gt;
