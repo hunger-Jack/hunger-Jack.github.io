@@ -297,6 +297,213 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jirengujack.cn/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mozun.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔尊重楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/" itemprop="url">vue-cli多页面应用(一)--基础结构搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T01:48:15+08:00">
+                2018-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/vue-cli/" itemprop="url" rel="index">
+                    <span itemprop="name">vue-cli</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  953
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="全局安装vue官方提供的vue-cli脚手架工具"><a href="#全局安装vue官方提供的vue-cli脚手架工具" class="headerlink" title="全局安装vue官方提供的vue-cli脚手架工具"></a>全局安装vue官方提供的vue-cli脚手架工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g vue-cli</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。"><a href="#创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。" class="headerlink" title="创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。"></a>创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。</h2><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vue init webpack &lt;project-<span class="keyword">name</span>&gt; <span class="comment">//前提安装了了vue</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化过程中的过程中会有些选项"><a href="#初始化过程中的过程中会有些选项" class="headerlink" title="初始化过程中的过程中会有些选项"></a>初始化过程中的过程中会有些选项</h2><ol>
+<li>vue build选择runtime+compile，运行时加编译。</li>
+<li>安装vue-router，ESLint、Karma+Mocha、Nightwatch根据需求选择安装。<br><img src="https://i.loli.net/2018/01/23/5a6629c66cf1d.png" alt="Jietu20180123-021221.png"></li>
+<li><p>初始化完成之后会提示如果进入开发环境，一般是<code>npm run dev</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jirengujack.cn/2018/01/21/git更新仓库名称/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -847,7 +1054,7 @@
 
       
         
-          <h1 id="动态REm方案"><a href="#动态REm方案" class="headerlink" title="动态REm方案"></a>动态REm方案</h1><h2 id="浏览器禁止980px缩放"><a href="#浏览器禁止980px缩放" class="headerlink" title="浏览器禁止980px缩放"></a>浏览器禁止980px缩放</h2><p>使用<code>&lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no&quot;</code>禁止浏览缩放。我自己测试的结果是，只要meta的content里面有’initial-scale=1/2/3’、’width=device-width’或者’user-scalable=no’,页面都不能缩放。<br>如果同时写minimum-scale和maximum-scale=1了，最大和最小缩放都是1，那肯定不支持缩放了。∂</p>
+          <h1 id="动态REm方案"><a href="#动态REm方案" class="headerlink" title="动态REm方案"></a>动态REm方案</h1><h2 id="浏览器禁止980px缩放"><a href="#浏览器禁止980px缩放" class="headerlink" title="浏览器禁止980px缩放"></a>浏览器禁止980px缩放</h2><p>使用<code>&lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no&quot;</code>禁止浏览缩放。我自己测试的结果是，只要meta的content里面有’initial-scale=1/2/3’、’width=device-width’或者’user-scalable=no’,页面都不能缩放。<br>如果同时写minimum-scale和maximum-scale=1了，最大和最小缩放都是1，那肯定不支持缩放了。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    //内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1600,6 +1807,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/博客相关/" itemprop="url" rel="index">
+                    <span itemprop="name">博客相关</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -1771,7 +1989,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1782,7 +2000,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1793,7 +2011,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1823,6 +2041,12 @@
                     <a href="http://www.jirengujack.cn" target="_blank" title="Blog">
                       
                         <i class="fa fa-fw fa-globe"></i>Blog</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/66afec79f1c2" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
                   </span>
                 
             </div>
@@ -1884,7 +2108,7 @@
 </div>
 <div class="theme-info">
   
-  <span class="post-count">博客全站共3.9k字</span>
+  <span class="post-count">博客全站共4.9k字</span>
 </div>
         
 

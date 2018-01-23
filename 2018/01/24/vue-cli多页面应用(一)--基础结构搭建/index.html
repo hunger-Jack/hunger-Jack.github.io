@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,vue-cli,webpack," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="魔尊重楼" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="全局安装vue官方提供的vue-cli脚手架工具1$ npm install -g vue-cli 创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。1$ vue init webpack &amp;lt;project-name&amp;gt; //前提安装了了vue">
+<meta name="keywords" content="vue,vue-cli,webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli多页面应用(一)--基础结构搭建">
+<meta property="og:url" content="http://jirengujack.cn/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/index.html">
+<meta property="og:site_name" content="魔尊重楼">
+<meta property="og:description" content="全局安装vue官方提供的vue-cli脚手架工具1$ npm install -g vue-cli 创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。1$ vue init webpack &amp;lt;project-name&amp;gt; //前提安装了了vue">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/01/23/5a6629c66cf1d.png">
+<meta property="og:image" content="https://i.loli.net/2018/01/23/5a662b9bf20e7.png">
+<meta property="og:updated_time" content="2018-01-23T17:52:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-cli多页面应用(一)--基础结构搭建">
+<meta name="twitter:description" content="全局安装vue官方提供的vue-cli脚手架工具1$ npm install -g vue-cli 创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。1$ vue init webpack &amp;lt;project-name&amp;gt; //前提安装了了vue">
+<meta name="twitter:image" content="https://i.loli.net/2018/01/23/5a6629c66cf1d.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jirengujack.cn/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/"/>
+
+
+
+
+
+  <title>vue-cli多页面应用(一)--基础结构搭建 | 魔尊重楼</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/hunger-Jack"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔尊重楼</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jirengujack.cn/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mozun.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔尊重楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue-cli多页面应用(一)--基础结构搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T01:48:15+08:00">
+                2018-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/vue-cli/" itemprop="url" rel="index">
+                    <span itemprop="name">vue-cli</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  953
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="全局安装vue官方提供的vue-cli脚手架工具"><a href="#全局安装vue官方提供的vue-cli脚手架工具" class="headerlink" title="全局安装vue官方提供的vue-cli脚手架工具"></a>全局安装vue官方提供的vue-cli脚手架工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g vue-cli</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。"><a href="#创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。" class="headerlink" title="创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。"></a>创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。</h2><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vue init webpack &lt;project-<span class="keyword">name</span>&gt; <span class="comment">//前提安装了了vue</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化过程中的过程中会有些选项"><a href="#初始化过程中的过程中会有些选项" class="headerlink" title="初始化过程中的过程中会有些选项"></a>初始化过程中的过程中会有些选项</h2><ol>
+<li>vue build选择runtime+compile，运行时加编译。</li>
+<li>安装vue-router，ESLint、Karma+Mocha、Nightwatch根据需求选择安装。<br><img src="https://i.loli.net/2018/01/23/5a6629c66cf1d.png" alt="Jietu20180123-021221.png"></li>
+<li><p>初始化完成之后会提示如果进入开发环境，一般是<code>npm run dev</code></p>
+<a id="more"></a>
+<h2 id="初始化之后是一个单页面的应用，我们要调整一下目录结构，使之成为多页面应用"><a href="#初始化之后是一个单页面的应用，我们要调整一下目录结构，使之成为多页面应用" class="headerlink" title="初始化之后是一个单页面的应用，我们要调整一下目录结构，使之成为多页面应用"></a>初始化之后是一个单页面的应用，我们要调整一下目录结构，使之成为多页面应用</h2><p><img src="https://i.loli.net/2018/01/23/5a662b9bf20e7.png" alt="03.png"></p>
+</li>
+<li><p>在开发目录src下创建modules和pages文件夹，分别存放模板文件和页面文件。</p>
+</li>
+<li>把有关页面的文件放在同一个文件夹方便统一管理。项目有几个页面就可以在pages下面创建几个文件。例如把所有首页内容都在index文件夹里面：<br> 把index.html(页面模板)，main.js(页面入口文件)，App.vue(页面使用组件，公共组件    放在components文件夹下)，assets(静态资源)，router(路由配置)都放在pages下的    index文件夹下面。把main.js改成index.js，保证页面的入口文件与模板文件名称一致。</li>
+</ol>
+<h2 id="配置多入口文件和多页面输出"><a href="#配置多入口文件和多页面输出" class="headerlink" title="配置多入口文件和多页面输出"></a>配置多入口文件和多页面输出</h2><ol>
+<li>在/build/utils.js中添加两个方法：webpack的多入口文件和多页面输出</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">var</span> glob = <span class="built_in">require</span>(<span class="string">'glob'</span>)</span><br><span class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> PAGE_PATH = path.resolve(__dirname, <span class="string">'../src/pages'</span>)</span><br><span class="line"><span class="keyword">var</span> merge = <span class="built_in">require</span>(<span class="string">'webpack-merge'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//多入口配置</span></span><br><span class="line">exports.entries = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//读pages下的所有文件夹的js文件绝对路径，也就是每个页面文件的入口文件</span></span><br><span class="line">  <span class="keyword">var</span> entryFiles = glob.sync(PAGE_PATH + <span class="string">'/*/*.js'</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> map = &#123;&#125;</span><br><span class="line">  <span class="comment">//便利匹配到所有js文件路径，获取所有js文件名称，把对应的名称与路径添加到map对象，最后返回一个map对象，也就是多入口对象</span></span><br><span class="line">  entryFiles.forEach(<span class="function">(<span class="params">filePath</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> filename = filePath.substring(filePath.lastIndexOf(<span class="string">'\/'</span>) + <span class="number">1</span>, filePath.lastIndexOf(<span class="string">'.'</span>))</span><br><span class="line">    map[filename] = filePath</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> map</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多页面输出配置</span></span><br><span class="line">exports.htmlPlugin = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//读pages下所有页面文件夹下的所有页面模板路径</span></span><br><span class="line">  <span class="keyword">let</span> entryHtml = glob.sync(PAGE_PATH + <span class="string">'/*/*.html'</span>)</span><br><span class="line">  <span class="keyword">let</span> arr = []</span><br><span class="line">  entryHtml.forEach(<span class="function">(<span class="params">filePath</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> filename = filePath.substring(filePath.lastIndexOf(<span class="string">'\/'</span>) + <span class="number">1</span>, filePath.lastIndexOf(<span class="string">'.'</span>))</span><br><span class="line">    <span class="keyword">let</span> conf = &#123;</span><br><span class="line">      template: filePath,<span class="comment">//模板路径</span></span><br><span class="line">      filename: filename + <span class="string">'.html'</span>,<span class="comment">//模板文件名</span></span><br><span class="line">      chunks: [filename],<span class="comment">//打包输出文件名字</span></span><br><span class="line">      inject: <span class="literal">true</span><span class="comment">//允许加入静态资源</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'production'</span>) &#123;<span class="comment">//如果是开发环境，使用此配置</span></span><br><span class="line">      conf = merge(conf, &#123;</span><br><span class="line">        chunks: [<span class="string">'manifest'</span>, <span class="string">'vendor'</span>, filename],</span><br><span class="line">        minify: &#123;</span><br><span class="line">          removeComments: <span class="literal">true</span>,<span class="comment">//移除注释</span></span><br><span class="line">          collapseWhitespace: <span class="literal">true</span>,<span class="comment">//移除空白</span></span><br><span class="line">          removeAttributeQuotes: <span class="literal">true</span><span class="comment">//如果允许，移除属性引号</span></span><br><span class="line">        &#125;,</span><br><span class="line">        chunksSortMode: <span class="string">'dependency'</span><span class="comment">//模块文件按照依赖排序</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    arr.push(<span class="keyword">new</span> HtmlWebpackPlugin(conf))</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="修改webpack入口配置"><a href="#修改webpack入口配置" class="headerlink" title="修改webpack入口配置"></a>修改webpack入口配置</h2><p>打开/build/webpack.base.conf.js文件，做如下修改：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">//如果有这句话，急着注释掉，以免出错</span></span><br><span class="line">	<span class="comment">//context: path.resolve(__dirname, '../'),  </span></span><br><span class="line">	entry: utils.entries(),</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="修改webpack开发环境配置"><a href="#修改webpack开发环境配置" class="headerlink" title="修改webpack开发环境配置"></a>修改webpack开发环境配置</h2><p>打开/build/webpack.dev.conf.js文件，做一下修改：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//  new HtmlWebpackPlugin(&#123;</span></span><br><span class="line">  <span class="comment">//    filename: 'index.html',</span></span><br><span class="line">  <span class="comment">//    template: 'index.html',</span></span><br><span class="line">  <span class="comment">//    inject: true</span></span><br><span class="line">  <span class="comment">//  &#125;),</span></span><br><span class="line">  ......</span><br><span class="line">].concat(utils.htmlPlugin())<span class="comment">//注释点以上代码，添加此代码</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改webpack生产环境配置"><a href="#修改webpack生产环境配置" class="headerlink" title="修改webpack生产环境配置"></a>修改webpack生产环境配置</h2><p>打开/build/webpack.prod.conf.js文件，做一下修改：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">// new HtmlWebpackPlugin(&#123;</span></span><br><span class="line">  <span class="comment">//   filename: config.build.index,</span></span><br><span class="line">  <span class="comment">//   template: 'index.html',</span></span><br><span class="line">  <span class="comment">//   inject: true,</span></span><br><span class="line">  <span class="comment">//   minify: &#123;</span></span><br><span class="line">  <span class="comment">//     removeComments: true,</span></span><br><span class="line">  <span class="comment">//     collapseWhitespace: true,</span></span><br><span class="line">  <span class="comment">//     removeAttributeQuotes: true</span></span><br><span class="line">  <span class="comment">//   &#125;,</span></span><br><span class="line">  <span class="comment">//   chunksSortMode: 'dependency'</span></span><br><span class="line">  <span class="comment">// &#125;),</span></span><br><span class="line">  ......</span><br><span class="line">].concat(utils.htmlPlugin())<span class="comment">//注释点以上代码，添加此代码</span></span><br></pre></td></tr></table></figure>
+<pre><code>chunks: [&apos;manifest&apos;, &apos;vendor&apos;, filename]
+关于此代码，我自己的理解是，打包的时候先对vendor模块缓存，再提取公共部分模块，避免把所有的文件都打包
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/">vue-cli多页面应用(一)--基础结构搭建</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Harry 的个人博客">Harry</a></p>
+  <p><span>发布时间:</span>2018年01月24日 - 01:01</p>
+  <p><span>最后更新:</span>2018年01月24日 - 01:01</p>
+  <p><span>原始链接:</span><a href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/" title="vue-cli多页面应用(一)--基础结构搭建">http://jirengujack.cn/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢指导点评，要不打赏点？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate-wechat.png" alt="Harry 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate-alipay.png" alt="Harry 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+            <a href="/tags/vue-cli/" rel="tag"><i class="fa fa-tag"></i> vue-cli</a>
+          
+            <a href="/tags/webpack/" rel="tag"><i class="fa fa-tag"></i> webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/21/git更新仓库名称/" rel="next" title="git更新仓库名称">
+                <i class="fa fa-chevron-left"></i> git更新仓库名称
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mozun.jpeg"
+                alt="Harry" />
+            
+              <p class="site-author-name" itemprop="name">Harry</p>
+              <p class="site-description motion-element" itemprop="description">前端|自学|小白</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hunger-Jack" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.jirengujack.cn" target="_blank" title="Blog">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Blog</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/66afec79f1c2" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装vue官方提供的vue-cli脚手架工具"><span class="nav-number">1.</span> <span class="nav-text">全局安装vue官方提供的vue-cli脚手架工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。"><span class="nav-number">2.</span> <span class="nav-text">创建项目模板，官方提供了5个模板，webpack、webpack-simple、browserify、browserify-simple、simple，我们使用的是webpack模板，初始化项目。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化过程中的过程中会有些选项"><span class="nav-number">3.</span> <span class="nav-text">初始化过程中的过程中会有些选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化之后是一个单页面的应用，我们要调整一下目录结构，使之成为多页面应用"><span class="nav-number">4.</span> <span class="nav-text">初始化之后是一个单页面的应用，我们要调整一下目录结构，使之成为多页面应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置多入口文件和多页面输出"><span class="nav-number">5.</span> <span class="nav-text">配置多入口文件和多页面输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改webpack入口配置"><span class="nav-number">6.</span> <span class="nav-text">修改webpack入口配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改webpack开发环境配置"><span class="nav-number">7.</span> <span class="nav-text">修改webpack开发环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改webpack生产环境配置"><span class="nav-number">8.</span> <span class="nav-text">修改webpack生产环境配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Harry</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+--!>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+<div class="theme-info">
+  
+  <span class="post-count">博客全站共4.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'h4ccHlvwmpUumg44zvNKwL3x-gzGzoHsz',
+        appKey: 'UIP7AiBtXuHPhk7RqTAS4zWz',
+        placeholder: '自学中，多多评论指出错误，谢谢啦~~~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
