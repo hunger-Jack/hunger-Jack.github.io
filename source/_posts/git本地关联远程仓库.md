@@ -23,7 +23,7 @@ $ git init
 <!--more-->
 # 将本地仓库与远程仓库关联
 ~~~
-$ git remote add origin master git@github.com:YotrolZ/helloTest.git
+$ git remote add origin git@github.com:YotrolZ/helloTest.git
 //git@开头的这个地址在github你刚刚建立的仓库里面找
 ~~~
 ![3.png](https://i.loli.net/2018/01/20/5a623c499ad73.png)
@@ -42,4 +42,14 @@ push就可以了。
 $ git push -u origin master
 ~~~
 
+# 具体步骤
+1. git init
+2. git remote add origin git@github.com:YotrolZ/helloTest.git
+3. git pull origin master --allow-unrelated-histories 
+4. touch a.html  【随意创建一个文件】
+5. git add .
+6. git commit -m add
+7. git push -u origin master
+
+**我也不知道为什么重复git add，但是就是这样才成功了**
 
