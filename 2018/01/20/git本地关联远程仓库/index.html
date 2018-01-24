@@ -126,7 +126,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/01/20/5a623b469e50a.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/20/5a623c499ad73.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/20/5a623c4990a56.png">
-<meta property="og:updated_time" content="2018-01-24T18:46:24.000Z">
+<meta property="og:updated_time" content="2018-01-24T18:55:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git本地关联远程仓库">
 <meta name="twitter:description" content="初始化本地仓库1$ git init 执行以上代码之后，会发现当前文件下多了一个.git的文件，这个是用户管理跟踪本地版本库的，千万不要去乱动，不然就乱了可就麻烦了。 在github创建一个远程仓库">
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  216
+                  286
                 </span>
               
 
@@ -454,6 +454,17 @@
 <p>这一步必须操作，否则是无法git push的，每次创建新的仓库关联这一步必须做得哦</p>
 <p>然后就可以正常的使用git了，第一次push的时候需要写完整以下代码，以后就只需要git<br>push就可以了。</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> -u <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><ol>
+<li>git init</li>
+<li>git remote add origin git@github.com:YotrolZ/helloTest.git</li>
+<li>git add .</li>
+<li>git commit -m add</li>
+<li>git pull origin master –allow-unrelated-histories </li>
+<li>git add .</li>
+<li>git commit -m add</li>
+<li>git push -u origin master</li>
+</ol>
+<p><strong>我也不知道为什么重复git add，但是就是这样才成功了</strong></p>
 
       
     </div>
@@ -730,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化本地仓库"><span class="nav-number">1.</span> <span class="nav-text">初始化本地仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在github创建一个远程仓库"><span class="nav-number">2.</span> <span class="nav-text">在github创建一个远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将本地仓库与远程仓库关联"><span class="nav-number">3.</span> <span class="nav-text">将本地仓库与远程仓库关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拉取远程仓库信息"><span class="nav-number">4.</span> <span class="nav-text">拉取远程仓库信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化本地仓库"><span class="nav-number">1.</span> <span class="nav-text">初始化本地仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在github创建一个远程仓库"><span class="nav-number">2.</span> <span class="nav-text">在github创建一个远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将本地仓库与远程仓库关联"><span class="nav-number">3.</span> <span class="nav-text">将本地仓库与远程仓库关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拉取远程仓库信息"><span class="nav-number">4.</span> <span class="nav-text">拉取远程仓库信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体步骤"><span class="nav-number">5.</span> <span class="nav-text">具体步骤</span></a></li></ol></div>
             
 
           </div>
