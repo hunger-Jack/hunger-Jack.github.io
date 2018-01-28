@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="魔尊重楼" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这个示例是模仿官网示例样式和功能用我自己的方式写的，基本上没有看官网的源码，只参考自定义指令。让我们一步步来探讨一下。官网demo 要实现的功能 单条添加todo 单条删除todo 双击编辑todo 单条todo已完成相应样式状态改变 全部todo是已完成相应样式状态改变 清除全部已完成todos 待办todos数量显示 所有todos，已完成todos，未完成todos筛选">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue官网todoMVC示例">
+<meta property="og:url" content="http://jirengujack.cn/2018/01/28/Vue官网todoMVC示例/index.html">
+<meta property="og:site_name" content="魔尊重楼">
+<meta property="og:description" content="这个示例是模仿官网示例样式和功能用我自己的方式写的，基本上没有看官网的源码，只参考自定义指令。让我们一步步来探讨一下。官网demo 要实现的功能 单条添加todo 单条删除todo 双击编辑todo 单条todo已完成相应样式状态改变 全部todo是已完成相应样式状态改变 清除全部已完成todos 待办todos数量显示 所有todos，已完成todos，未完成todos筛选">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/01/29/5a6dfccfd4ea2.gif">
+<meta property="og:updated_time" content="2018-01-28T18:19:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue官网todoMVC示例">
+<meta name="twitter:description" content="这个示例是模仿官网示例样式和功能用我自己的方式写的，基本上没有看官网的源码，只参考自定义指令。让我们一步步来探讨一下。官网demo 要实现的功能 单条添加todo 单条删除todo 双击编辑todo 单条todo已完成相应样式状态改变 全部todo是已完成相应样式状态改变 清除全部已完成todos 待办todos数量显示 所有todos，已完成todos，未完成todos筛选">
+<meta name="twitter:image" content="https://i.loli.net/2018/01/29/5a6dfccfd4ea2.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jirengujack.cn/2018/01/28/Vue官网todoMVC示例/"/>
+
+
+
+
+
+  <title>Vue官网todoMVC示例 | 魔尊重楼</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/hunger-Jack"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔尊重楼</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jirengujack.cn/2018/01/28/Vue官网todoMVC示例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mozun.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔尊重楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue官网todoMVC示例</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T02:14:14+08:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/demo/" itemprop="url" rel="index">
+                    <span itemprop="name">demo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/28/Vue官网todoMVC示例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/28/Vue官网todoMVC示例/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,609
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这个示例是模仿官网示例样式和功能用我自己的方式写的，基本上没有看官网的源码，只参考自定义指令。让我们一步步来探讨一下。<a href="https://cn.vuejs.org/v2/examples/todomvc.html" target="_blank" rel="noopener">官网demo</a></p>
+<h1 id="要实现的功能"><a href="#要实现的功能" class="headerlink" title="要实现的功能"></a>要实现的功能</h1><ol>
+<li>单条添加todo</li>
+<li>单条删除todo</li>
+<li>双击编辑todo</li>
+<li>单条todo已完成相应样式状态改变</li>
+<li>全部todo是已完成相应样式状态改变</li>
+<li>清除全部已完成todos</li>
+<li>待办todos数量显示</li>
+<li>所有todos，已完成todos，未完成todos筛选</li>
+</ol>
+<p><img src="https://i.loli.net/2018/01/29/5a6dfccfd4ea2.gif" alt="todoMVC.gif"><br><a id="more"></a></p>
+<h1 id="单条添加todo"><a href="#单条添加todo" class="headerlink" title="单条添加todo"></a>单条添加todo</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"todos_add"</span> <span class="attr">placeholder</span>=<span class="string">"What needs to be done?"</span> </span></span><br><span class="line"><span class="tag">@<span class="attr">keyup.enter</span>=<span class="string">"addTodo($event.target)"</span> //绑定<span class="attr">enter</span>事件</span></span><br><span class="line"><span class="tag"><span class="attr">ref</span>=<span class="string">"currentInput"</span>&gt;</span>//操作input元素使enter一下之后清空输入框内容</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;<span class="comment">//一些初始化数据</span></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		todolists: [],</span><br><span class="line">		dataStatus: [<span class="string">"All"</span>, <span class="string">"Active"</span>, <span class="string">"Completed"</span>],</span><br><span class="line">		dataStatusIndex: <span class="number">0</span>,</span><br><span class="line">		whichShow: <span class="literal">true</span>,</span><br><span class="line">		defaultShow: <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">addTodo(e) &#123; <span class="comment">//添加todo</span></span><br><span class="line">	<span class="keyword">var</span> val = e.value</span><br><span class="line">	<span class="keyword">if</span> (val === <span class="string">""</span>) &#123;<span class="keyword">return</span>&#125; <span class="comment">//如果输入内容为空则立即返回</span></span><br><span class="line">	<span class="keyword">this</span>.todoLists = <span class="keyword">this</span>.todoLists.concat(&#123;<span class="comment">//使用concat这个api添加todo</span></span><br><span class="line">		value: val, <span class="comment">//输入内容</span></span><br><span class="line">		isEditing: <span class="literal">false</span>, <span class="comment">//是否在编辑状态</span></span><br><span class="line">		isActive: <span class="literal">false</span>, <span class="comment">//删除X图标是否激活</span></span><br><span class="line">		isChecked: <span class="literal">false</span> <span class="comment">//是否已完成</span></span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">this</span>.$refs.currentInput.value = <span class="string">""</span> <span class="comment">//按下enter添加todo之后把输入框value清零</span></span><br><span class="line">	<span class="built_in">window</span>.localStorage.setItem(<span class="string">"content"</span>,<span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.todoLists))<span class="comment">//使用localStorage以JSON格式存储数据</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>把每条todo的对应状态都存在同一个对象当中，在操作改变todo状态的时候不会被统一处理，使得每条todo都有单独的状态。</p>
+<h1 id="单条删除todo"><a href="#单条删除todo" class="headerlink" title="单条删除todo"></a>单条删除todo</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">li</span>  <span class="attr">class</span>=<span class="string">"content_todoList"</span></span></span><br><span class="line"><span class="tag"> <span class="attr">v-for</span>=<span class="string">"(list,index) in todoLists"</span> </span></span><br><span class="line"><span class="tag"> @<span class="attr">mouseover</span>=<span class="string">"list.isActive = true"</span> //鼠标移入<span class="attr">todo</span>改变对应<span class="attr">todo</span>的<span class="attr">isActive</span>状态</span></span><br><span class="line"><span class="tag"> @<span class="attr">mouseleave</span>=<span class="string">"list.isActive=false"</span> //鼠标移出<span class="attr">todo</span>改变对应<span class="attr">todo</span>的<span class="attr">isActive</span>状态</span></span><br><span class="line">	&lt;span class="el-icon-close content_todoList_delete" </span><br><span class="line">	:class="&#123;show: list.isActive&#125;" //动态绑定class使鼠标移动到某一todo显示X图标</span><br><span class="line">	@click="deleteTodo(index)"&gt; //绑定删除单条todo事件</span><br><span class="line">	<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deleteTodo(index) &#123; <span class="comment">//删除单条todo</span></span><br><span class="line">		<span class="keyword">this</span>.todoLists.splice(index, <span class="number">1</span>)<span class="comment">//使用splice的api</span></span><br><span class="line">		<span class="built_in">window</span>.localStorage.setItem(<span class="string">"content"</span>,<span class="built_in">JSON</span>.stringify(todoLists)) <span class="comment">//以JSON格式存储数据//localStorage存储数据</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>在每个<code>li</code>元素上绑定了鼠标移入和移除的事件来动态的改变每个todo的isActive，然后再使用isActive动态显示class。</p>
+<h1 id="双击编辑todo-amp-amp-单条todo已完成"><a href="#双击编辑todo-amp-amp-单条todo已完成" class="headerlink" title="双击编辑todo&amp;&amp;单条todo已完成"></a>双击编辑todo&amp;&amp;单条todo已完成</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">class</span>=<span class="string">"checkBox"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-model</span>=<span class="string">"list.isChecked"</span>&gt;</span>//双向绑定isChecked</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_todoList_main"</span> </span></span><br><span class="line"><span class="tag">@<span class="attr">dblclick</span>=<span class="string">"toEdit(list)"</span> //双击事件</span></span><br><span class="line"><span class="tag"><span class="attr">v-show</span>=<span class="string">"!list.isEditing"</span> //切换元素</span></span><br><span class="line"><span class="tag"><span class="attr">:class</span>=<span class="string">"&#123;deleted:list.isChecked&#125;"</span>&gt;</span> //动态绑定class该表已完成todo样式</span><br><span class="line">&#123;&#123;list.value&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"content_todoList_main main_input"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-model</span>=<span class="string">"list.value"</span> //双向绑定可输入<span class="attr">value</span></span></span><br><span class="line"><span class="tag"><span class="attr">v-show</span>=<span class="string">"list.isEditing"</span> //切换元素</span></span><br><span class="line"><span class="tag"><span class="attr">v-todo-focus</span>=<span class="string">"list.value"</span> //自定义指令，双击之后自动<span class="attr">focus</span>对焦</span></span><br><span class="line"><span class="tag">@<span class="attr">blur</span>=<span class="string">"unEdit(list)"</span>&gt;</span> //绑定blur失去焦点事件</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">	toEdit(obj) &#123; <span class="comment">//使添加的todothing可编辑</span></span><br><span class="line">		obj.isEditing = <span class="literal">true</span></span><br><span class="line">	&#125;,</span><br><span class="line">	</span><br><span class="line">	unEdit(obj) &#123; <span class="comment">//使添加的todothing不可编辑</span></span><br><span class="line">		obj.isEditing = <span class="literal">false</span></span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">directives: &#123; <span class="comment">//自定义focus指令,需要一个binding参数做判断</span></span><br><span class="line">	<span class="string">"todo-focus"</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el, binding</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (binding.value) &#123;</span><br><span class="line">			el.focus()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过每个todo里的isEditing属性控制show和是否可编辑两个状态，双击div之后改变当前todo的isEditing为true，从而显示为input，input失去焦点之后再通过blur事件改为false。<br>通过todo的idChecked来控制是否已完成，从而动态改变样式。</p>
+<h1 id="全部todos已完成"><a href="#全部todos已完成" class="headerlink" title="全部todos已完成"></a>全部todos已完成</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> </span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">"icon-down el-icon-arrow-down"</span> //使用<span class="attr">element</span>库做向下箭头<span class="attr">icon</span></span></span><br><span class="line"><span class="tag"><span class="attr">v-show</span>=<span class="string">"todoLists.length&gt;0"</span> //通过<span class="attr">todoLists</span>控制是否显示向下箭头<span class="attr">icon</span></span></span><br><span class="line"><span class="tag">@<span class="attr">click</span>=<span class="string">"selectAllTodos"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> //全部已完成事件</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">selectAllTodos() &#123; <span class="comment">//设置所有todo为已完成,使用map的api通过todo的isChecked属性操作</span></span><br><span class="line">	<span class="keyword">this</span>.todoLists.map(<span class="function"><span class="params">todo</span> =&gt;</span> todo.isChecked = todo.isChecked ? <span class="literal">false</span> : <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="待办todos数量显示"><a href="#待办todos数量显示" class="headerlink" title="待办todos数量显示"></a>待办todos数量显示</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_times"</span> <span class="attr">v-show</span>=<span class="string">"times === 0"</span>&gt;</span> //times为0显示item，大于0显示items，细节注定成败</span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;times&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&amp;nbsp item left</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_times"</span> <span class="attr">v-show</span>=<span class="string">"times &gt; 0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;times&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&amp;nbsp items left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	times() &#123; <span class="comment">//使用计算属性计算待办todos的次数 </span></span><br><span class="line">		<span class="keyword">let</span> todoArr = <span class="keyword">this</span>.todoLists</span><br><span class="line">		<span class="keyword">let</span> times = <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; todoArr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (todoArr[i].isChecked === <span class="literal">false</span>) &#123;</span><br><span class="line">				times++</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> times</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>使用了计算属性对todoLists计算，用for循环刷选出idChecked为true的累加，最后返回times。</p>
+<h1 id="清除全部已完成todos"><a href="#清除全部已完成todos" class="headerlink" title="清除全部已完成todos"></a>清除全部已完成todos</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_clearTodos"</span> </span></span><br><span class="line"><span class="tag">@<span class="attr">click</span>=<span class="string">"clearTodos"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-show</span>=<span class="string">"times &lt; todoLists.length"</span>&gt;</span> //如果待办事件次数小于总todoLists长度就显示“clear completed”</span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>clear completed<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_clearTodos"</span> </span></span><br><span class="line"><span class="tag">@<span class="attr">click</span>=<span class="string">"clearTodos"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-show</span>=<span class="string">"times === todoLists.length"</span>&gt;</span> //如果待办事件次数等于总todoLists长度就显示“clear completed”</span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clearTodos() &#123; <span class="comment">//清空已完成的todoLists，使用filter的api进行筛选</span></span><br><span class="line">	<span class="keyword">this</span>.todoLists = <span class="keyword">this</span>.todoLists.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.isChecked === <span class="literal">false</span>)</span><br><span class="line">	<span class="built_in">window</span>.localStorage.setItem(<span class="string">"content"</span>,<span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.todoLists)) <span class="comment">//以json格式存储数据</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>如果待办todos的times小于todoLists长度，就证明有已完成的todo，就可以显示“clear completed”，如果相等就说明没有已完成的todo。</p>
+<h1 id="三种状态筛选"><a href="#三种状态筛选" class="headerlink" title="三种状态筛选"></a>三种状态筛选</h1><p>所有todos，已完成todos，未完成todos筛选</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"content_todoList"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-show</span>=<span class="string">"defaultShow || (whichShow?list.isChecked:!list.isChecked)"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_status"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">:class</span>=<span class="string">"&#123;active: index === dataStatusIndex&#125;"</span> //动态<span class="attr">class</span>实现<span class="attr">tab</span>切换</span></span><br><span class="line"><span class="tag">	<span class="attr">v-for</span>=<span class="string">"(item ,index) in dataStatus"</span> <span class="attr">v-for</span>循环</span></span><br><span class="line"><span class="tag">	@<span class="attr">click</span>=<span class="string">"switchStatus(index)"</span> //切换不同<span class="attr">tab</span>显示内容</span></span><br><span class="line"><span class="tag">	<span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">		&#123;&#123;item&#125;&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">switchStatus(index) &#123; <span class="comment">//通过if条件判断操作</span></span><br><span class="line">	<span class="keyword">this</span>.dataStatusIndex = index</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.dataStatus[index] === <span class="string">"Active"</span>) &#123;</span><br><span class="line">		<span class="keyword">this</span>.defaultShow = <span class="literal">false</span></span><br><span class="line">		<span class="keyword">this</span>.whichShow = <span class="literal">false</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.dataStatus[index] === <span class="string">"Completed"</span>) &#123;</span><br><span class="line">		<span class="keyword">this</span>.defaultShow = <span class="literal">false</span></span><br><span class="line">		<span class="keyword">this</span>.whichShow = <span class="literal">true</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.dataStatus[index] === <span class="string">"All"</span>) &#123;</span><br><span class="line">		<span class="keyword">this</span>.defaultShow = <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>我这里是同时if条件句判断操作，有点麻烦，目前还没有想出来其他方案。在<code>li</code>元素使用三元运算符和或运算符进行操作显示不同状态的todos。</p>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span> &#123;</span><br><span class="line">	<span class="attribute">outline</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">li</span>,</span><br><span class="line"><span class="selector-tag">ol</span> &#123;</span><br><span class="line">	<span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#app</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">900px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgb</span>(245, 245, 245);</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">24px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#app</span> <span class="selector-class">.header</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">48px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">72%</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">	<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">3px</span> <span class="number">3px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.25);</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.icon-down</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">24px</span>;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">16px</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">16px</span>;</span><br><span class="line">	<span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#app</span> <span class="selector-class">.content</span> <span class="selector-class">.todos_add</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">56px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">16px</span> <span class="number">56px</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">24px</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content_todoLists</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content_todoList</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">flex-direction</span>: row;</span><br><span class="line">	<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">24px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">8px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: white;</span><br><span class="line">	<span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.checkBox</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content_todoList_main</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: left;</span><br><span class="line">	<span class="attribute">margin-left</span>: <span class="number">16px</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main_input</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content_todoList_delete</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">16px</span>;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(252, 55, 55);</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">	<span class="attribute">display</span>: none;</span><br><span class="line">	<span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.show</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.deleted</span> &#123;</span><br><span class="line">	<span class="attribute">text-decoration-line</span>: line-through;</span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#bbb</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.show</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(255, 0, 0);</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-moz-placeholder</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(221, 218, 218);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(221, 218, 218);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:-ms-input-placeholder</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(221, 218, 218);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.data</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-between;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">8px</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(145, 145, 145);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">	<span class="attribute">text-decoration</span>: none;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">rgb</span>(145, 145, 145);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.data_times</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">73px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.data_clearTodos</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">142px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.data_status</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: inline-block;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid transparent;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">1px</span> <span class="number">4px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.data_status</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">border-color</span>: <span class="number">#bbb</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.data_clearTodos</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">text-decoration-line</span>: underline;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.active</span> &#123;</span><br><span class="line">	<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>todos<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-down el-icon-arrow-down"</span> </span></span><br><span class="line"><span class="tag">		<span class="attr">v-show</span>=<span class="string">"todoLists.length&gt;0"</span> </span></span><br><span class="line"><span class="tag">		@<span class="attr">click</span>=<span class="string">"selectAllTodos"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"todos_add"</span> <span class="attr">placeholder</span>=<span class="string">"What needs to be done?"</span> </span></span><br><span class="line"><span class="tag">		@<span class="attr">keyup.enter</span>=<span class="string">"addTodo($event.target)"</span> </span></span><br><span class="line"><span class="tag">		<span class="attr">ref</span>=<span class="string">"currentInput"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"content_todoLists"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(list,index) in todoLists"</span> <span class="attr">class</span>=<span class="string">"content_todoList"</span> </span></span><br><span class="line"><span class="tag">			@<span class="attr">mouseover</span>=<span class="string">"list.isActive = true"</span> </span></span><br><span class="line"><span class="tag">			@<span class="attr">mouseleave</span>=<span class="string">"list.isActive=false"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">v-show</span>=<span class="string">"defaultShow || (whichShow?list.isChecked:!list.isChecked)"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">class</span>=<span class="string">"checkBox"</span> <span class="attr">v-model</span>=<span class="string">"list.isChecked"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_todoList_main"</span> @<span class="attr">dblclick</span>=<span class="string">"toEdit(list)"</span> <span class="attr">v-show</span>=<span class="string">"!list.isEditing"</span> <span class="attr">:class</span>=<span class="string">"&#123;deleted:list.isChecked&#125;"</span>&gt;</span></span><br><span class="line">					&#123;&#123;list.value&#125;&#125;</span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"content_todoList_main main_input"</span> </span></span><br><span class="line"><span class="tag">				<span class="attr">v-model</span>=<span class="string">"list.value"</span> </span></span><br><span class="line"><span class="tag">				<span class="attr">v-show</span>=<span class="string">"list.isEditing"</span> </span></span><br><span class="line"><span class="tag">				<span class="attr">v-todo-focus</span>=<span class="string">"list.value"</span></span></span><br><span class="line"><span class="tag">				@<span class="attr">blur</span>=<span class="string">"unEdit(list)"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"el-icon-close content_todoList_delete"</span> <span class="attr">:class</span>=<span class="string">"&#123;show: list.isActive&#125;"</span> @<span class="attr">click</span>=<span class="string">"deleteTodo(index)"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data"</span> <span class="attr">v-show</span>=<span class="string">"todoLists.length&gt;0"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_times"</span> <span class="attr">v-show</span>=<span class="string">"times === 0"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;times&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&amp;nbspitem left</span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_times"</span> <span class="attr">v-show</span>=<span class="string">"times &gt; 0"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;times&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&amp;nbspitems left</span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_status"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">:class</span>=<span class="string">"&#123;active:index === dataStatusIndex&#125;"</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in dataStatus"</span> @<span class="attr">click</span>=<span class="string">"switchStatus(index)"</span> <span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">					&#123;&#123;item&#125;&#125;</span><br><span class="line">				<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_clearTodos"</span> @<span class="attr">click</span>=<span class="string">"clearTodos"</span> <span class="attr">v-show</span>=<span class="string">"times &lt; todoLists.length"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>clear completed<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"data_clearTodos"</span> @<span class="attr">click</span>=<span class="string">"clearTodos"</span> <span class="attr">v-show</span>=<span class="string">"times === todoLists.length"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el: <span class="string">"#app"</span>,</span><br><span class="line">	data() &#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;</span><br><span class="line">			todoLists: [],</span><br><span class="line">			dataStatus: [<span class="string">"All"</span>, <span class="string">"Active"</span>, <span class="string">"Completed"</span>],</span><br><span class="line">			dataStatusIndex: <span class="number">0</span>,</span><br><span class="line">			whichShow: <span class="literal">true</span>,</span><br><span class="line">			defaultShow: <span class="literal">true</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	computed: &#123;</span><br><span class="line">		times() &#123; <span class="comment">//使用计算属性计算待办todos的次数 </span></span><br><span class="line">			<span class="keyword">let</span> todoArr = <span class="keyword">this</span>.todoLists</span><br><span class="line">			<span class="keyword">let</span> times = <span class="number">0</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; todoArr.length; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (todoArr[i].isChecked === <span class="literal">false</span>) &#123;</span><br><span class="line">					times++</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> times</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	methods: &#123;</span><br><span class="line">		toEdit(obj) &#123; <span class="comment">//使添加的todo可编辑</span></span><br><span class="line">			obj.isEditing = <span class="literal">true</span></span><br><span class="line">		&#125;,</span><br><span class="line">		unEdit(obj) &#123; <span class="comment">//使添加的todo不可编辑</span></span><br><span class="line">			obj.isEditing = <span class="literal">false</span></span><br><span class="line">		&#125;,</span><br><span class="line">		addTodo(e) &#123; <span class="comment">//添加todo</span></span><br><span class="line">			<span class="keyword">var</span> val = e.value</span><br><span class="line">			<span class="keyword">if</span> (val === <span class="string">""</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125; <span class="comment">//如果输入内容为空则立即返回</span></span><br><span class="line">			<span class="keyword">this</span>.todoLists = <span class="keyword">this</span>.todoLists.concat(&#123; <span class="comment">//使用concat这个api添加todo</span></span><br><span class="line">				value: val, <span class="comment">//输入内容</span></span><br><span class="line">				isEditing: <span class="literal">false</span>, <span class="comment">//是否在编辑状态</span></span><br><span class="line">				isActive: <span class="literal">false</span>, <span class="comment">//删除X图标是否激活</span></span><br><span class="line">				isChecked: <span class="literal">false</span> <span class="comment">//是否已完成</span></span><br><span class="line">			&#125;)</span><br><span class="line">			<span class="keyword">this</span>.$refs.currentInput.value = <span class="string">""</span> <span class="comment">//按下enter添加todo之后把输入框value清零</span></span><br><span class="line">			<span class="built_in">window</span>.localStorage.setItem(<span class="string">"content"</span>, <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.todoLists)) <span class="comment">//使用localStorage以JSON格式存储数据</span></span><br><span class="line">		&#125;,</span><br><span class="line">		deleteTodo(index) &#123; <span class="comment">//删除todo</span></span><br><span class="line">			<span class="keyword">this</span>.todoLists.splice(index, <span class="number">1</span>)</span><br><span class="line">			<span class="built_in">window</span>.localStorage.setItem(<span class="string">"content"</span>, <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.todoLists)) <span class="comment">//以json格式存储数据</span></span><br><span class="line">		&#125;,</span><br><span class="line">		switchStatus(index) &#123; <span class="comment">//试下下方三个状态切换，略麻烦</span></span><br><span class="line">			<span class="keyword">this</span>.dataStatusIndex = index</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>.dataStatus[index] === <span class="string">"Active"</span>) &#123;</span><br><span class="line">				<span class="keyword">this</span>.defaultShow = <span class="literal">false</span></span><br><span class="line">				<span class="keyword">this</span>.whichShow = <span class="literal">false</span></span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.dataStatus[index] === <span class="string">"Completed"</span>) &#123;</span><br><span class="line">				<span class="keyword">this</span>.defaultShow = <span class="literal">false</span></span><br><span class="line">				<span class="keyword">this</span>.whichShow = <span class="literal">true</span></span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.dataStatus[index] === <span class="string">"All"</span>) &#123;</span><br><span class="line">				<span class="keyword">this</span>.defaultShow = <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		clearTodos() &#123; <span class="comment">//清空已完成的todoLists</span></span><br><span class="line">			<span class="keyword">this</span>.todoLists = <span class="keyword">this</span>.todoLists.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.isChecked === <span class="literal">false</span>)</span><br><span class="line">			<span class="built_in">window</span>.localStorage.setItem(<span class="string">"content"</span>, <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.todoLists)) <span class="comment">//以json格式存储数据</span></span><br><span class="line">		&#125;,</span><br><span class="line">		selectAllTodos() &#123; <span class="comment">//设置所有todo为已完成</span></span><br><span class="line">			<span class="keyword">this</span>.todoLists.map(<span class="function"><span class="params">todo</span> =&gt;</span> todo.isChecked = todo.isChecked ? <span class="literal">false</span> : <span class="literal">true</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	directives: &#123; <span class="comment">//自定义focus指令</span></span><br><span class="line">		<span class="string">"todo-focus"</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el, binding</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (binding.value) &#123;</span><br><span class="line">				el.focus()</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	created() &#123;</span><br><span class="line">		<span class="keyword">let</span> myStorage = <span class="built_in">window</span>.localStorage.getItem(<span class="string">'content'</span>)</span><br><span class="line">		<span class="keyword">this</span>.todoLists = <span class="built_in">JSON</span>.parse(myStorage) || [] <span class="comment">//因为todoLists初始值是null,使用或运算符，如果为null设为空数组</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/01/28/Vue官网todoMVC示例/">Vue官网todoMVC示例</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
+  <p><span>发布时间:</span>2018年01月28日 - 02:01</p>
+  <p><span>最后更新:</span>2018年01月29日 - 02:01</p>
+  <p><span>原始链接:</span><a href="/2018/01/28/Vue官网todoMVC示例/" title="Vue官网todoMVC示例">http://jirengujack.cn/2018/01/28/Vue官网todoMVC示例/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/01/28/Vue官网todoMVC示例/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢指导点评，要不打赏点？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate-wechat.png" alt="Jack 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate-alipay.png" alt="Jack 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/24/vue-cli多页面应用(一)--基础结构搭建/" rel="next" title="vue-cli多页面应用(一)--基础结构搭建">
+                <i class="fa fa-chevron-left"></i> vue-cli多页面应用(一)--基础结构搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mozun.jpeg"
+                alt="Jack" />
+            
+              <p class="site-author-name" itemprop="name">Jack</p>
+              <p class="site-description motion-element" itemprop="description">前端|自学|小白</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hunger-Jack" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.jirengujack.cn" target="_blank" title="Blog">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Blog</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/66afec79f1c2" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#要实现的功能"><span class="nav-number">1.</span> <span class="nav-text">要实现的功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单条添加todo"><span class="nav-number">2.</span> <span class="nav-text">单条添加todo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单条删除todo"><span class="nav-number">3.</span> <span class="nav-text">单条删除todo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#双击编辑todo-amp-amp-单条todo已完成"><span class="nav-number">4.</span> <span class="nav-text">双击编辑todo&amp;&amp;单条todo已完成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全部todos已完成"><span class="nav-number">5.</span> <span class="nav-text">全部todos已完成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#待办todos数量显示"><span class="nav-number">6.</span> <span class="nav-text">待办todos数量显示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清除全部已完成todos"><span class="nav-number">7.</span> <span class="nav-text">清除全部已完成todos</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三种状态筛选"><span class="nav-number">8.</span> <span class="nav-text">三种状态筛选</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整代码"><span class="nav-number">9.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jack</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+--!>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+<div class="theme-info">
+  
+  <span class="post-count">博客全站共7.6k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'h4ccHlvwmpUumg44zvNKwL3x-gzGzoHsz',
+        appKey: 'UIP7AiBtXuHPhk7RqTAS4zWz',
+        placeholder: '自学中，多多评论指出错误，谢谢啦~~~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
