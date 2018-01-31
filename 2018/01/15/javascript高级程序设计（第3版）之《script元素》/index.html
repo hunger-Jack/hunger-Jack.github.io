@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="魔尊重楼">
 <meta property="og:description" content="&amp;lt;script&amp;gt;元素属性   属性 定义     async 【可选】。可以异步加载，表示可以立即下载此脚本，但不影响页面其他操作。只对外部脚本有效。   charset 【可选】。表示通过src属性制定代码的字符集。由于多数浏览器会忽略此属性，很少人使用。   defer 【可选】。表示脚本可以掩饰到文档完全被解析和显示之后再执行。只对外部脚本有效。IE7及更早的版本对嵌入脚本也支持">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T16:23:14.000Z">
+<meta property="og:updated_time" content="2018-01-31T19:08:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计（第3版）之《script元素》">
 <meta name="twitter:description" content="&amp;lt;script&amp;gt;元素属性   属性 定义     async 【可选】。可以异步加载，表示可以立即下载此脚本，但不影响页面其他操作。只对外部脚本有效。   charset 【可选】。表示通过src属性制定代码的字符集。由于多数浏览器会忽略此属性，很少人使用。   defer 【可选】。表示脚本可以掩饰到文档完全被解析和显示之后再执行。只对外部脚本有效。IE7及更早的版本对嵌入脚本也支持">
@@ -490,7 +490,7 @@
 </li>
 </ol>
 <h4 id="特别强调"><a href="#特别强调" class="headerlink" title="特别强调"></a>特别强调</h4><ol>
-<li><p>包含在<code>&lt;script&gt;</code>元素内部的代码会被从上至下一次解释。所以在元素内部不要出现”<code>&lt;/script&gt;</code>“字符串，否则会报错。 </p>
+<li><p>包含在<code>&lt;script&gt;</code>元素内部的代码会被从上至下依次解释。所以在元素内部不要出现”<code>&lt;/script&gt;</code>“字符串，否则会报错。 </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">'&lt;/script&gt;'</span>)</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/Uncaught SyntaxError: Invalid or unexpected token</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/页面只会显示"')&#125;"字符串</span></span><br></pre></td></tr></table></figure>
 <p>​如果确实要使用”<code>&lt;/script&gt;</code>“字符串，可以加上转义符’\’</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">'&lt;\/script&gt;'</span>)</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
@@ -520,7 +520,7 @@
   <p><span>本文标题:</span><a href="/2018/01/15/javascript高级程序设计（第3版）之《script元素》/">javascript高级程序设计（第3版）之《script元素》</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
   <p><span>发布时间:</span>2018年01月15日 - 00:01</p>
-  <p><span>最后更新:</span>2018年01月27日 - 00:01</p>
+  <p><span>最后更新:</span>2018年02月01日 - 03:02</p>
   <p><span>原始链接:</span><a href="/2018/01/15/javascript高级程序设计（第3版）之《script元素》/" title="javascript高级程序设计（第3版）之《script元素》">http://jirengujack.cn/2018/01/15/javascript高级程序设计（第3版）之《script元素》/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/01/15/javascript高级程序设计（第3版）之《script元素》/"  aria-label="复制成功！"></i></span>
   </p>
