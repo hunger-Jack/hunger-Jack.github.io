@@ -6,7 +6,7 @@
 title: 魔尊重楼
 subtitle: 前端博客
 description: 前端|自学|小白
-author: Harry
+author: Jack
 language: zh-Hans
 timezone:
 
@@ -33,7 +33,7 @@ default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
-render_drafts: false
+render_drafts: true
 post_asset_folder: false
 relative_link: false
 future: true

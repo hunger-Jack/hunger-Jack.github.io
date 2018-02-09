@@ -3,7 +3,7 @@ title: html2canvas截图
 copyright: true
 date: 2018-01-12 02:14:18
 categories: 
-- js工具
+- 前端助手
 tags:
 - html2canvas截图
 ---
