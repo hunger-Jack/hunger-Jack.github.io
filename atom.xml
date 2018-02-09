@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jirengujack.cn/"/>
-  <updated>2018-01-28T18:23:13.000Z</updated>
+  <updated>2018-02-09T20:32:34.000Z</updated>
   <id>http://jirengujack.cn/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端常用工具插件整理</title>
+    <link href="http://jirengujack.cn/2018/02/10/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/"/>
+    <id>http://jirengujack.cn/2018/02/10/前端常用工具插件整理/</id>
+    <published>2018-02-09T20:32:34.000Z</published>
+    <updated>2018-02-09T20:32:34.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue官网todoMVC示例</title>
@@ -225,7 +239,7 @@
     <link href="http://jirengujack.cn/2018/01/12/html2canvas%E6%88%AA%E5%9B%BE/"/>
     <id>http://jirengujack.cn/2018/01/12/html2canvas截图/</id>
     <published>2018-01-11T18:14:18.000Z</published>
-    <updated>2018-01-11T18:40:15.000Z</updated>
+    <updated>2018-02-09T20:34:36.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="使用html2canvas截图"><a href="#使用html2canvas截图" class="headerlink" title="使用html2canvas截图"></a>使用html2canvas截图</h3><ol><li>进入<a href="http://html2canvas.hertzen.com/" target="_blank" rel="noopener">官网</a>，可以看到如下截图，点开箭头位置文件，在自己项目下建立一个js文件，把里面内容拷贝进去。<br><img src="https://i.loli.net/2018/01/12/5a57aa8755285.png" alt="Snip20180112_12.png"><a id="more"></a></li><li><p>在你想要截图的页面添加一个按钮，添加click事件，写入以下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.querySelector(<span class="string">"#capture"</span>)).then(<span class="function"><span class="params">canvas</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(canvas)<span class="comment">//#capture 是你想截图容器id或class，会把次id或class里面的内容都截图</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li><li><p>如果想点击之后直接下载，可以使用file-saver插件，先安装此插件：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="keyword">file</span>-saver -g</span><br></pre></td></tr></table></figure></li><li><p>修改js代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.querySelector(<span class="string">'#resumePreview'</span>)).then(<span class="function"><span class="keyword">function</span> (<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">  canvas.toBlob(<span class="function"><span class="keyword">function</span> (<span class="params">blob</span>) </span>&#123;</span><br><span class="line">    FileSaver.saveAs(blob, <span class="string">'Resume.png'</span>)<span class="comment">//‘Resume.png’可以自己修改</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ol><p><a href="http://www.jirengujack.cn/vue-resume/dist/#/" target="_blank" rel="noopener">vue在线简历制作</a> 这个是我自己的第一个稍微完整的一个小项目，在不断赶紧中，多多指点。在预览之后左上角会有截图按钮哦，<br>点击按钮之后会自动下载。<br><img src="https://i.loli.net/2018/01/12/5a57aef8ae021.png" alt="Snip20180112_15.png"></p>]]></content>
     
@@ -236,7 +250,7 @@
     
     </summary>
     
-      <category term="js工具" scheme="http://jirengujack.cn/categories/js%E5%B7%A5%E5%85%B7/"/>
+      <category term="前端助手" scheme="http://jirengujack.cn/categories/%E5%89%8D%E7%AB%AF%E5%8A%A9%E6%89%8B/"/>
     
     
       <category term="html2canvas截图" scheme="http://jirengujack.cn/tags/html2canvas%E6%88%AA%E5%9B%BE/"/>
