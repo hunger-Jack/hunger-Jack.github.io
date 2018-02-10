@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="魔尊重楼">
 <meta property="og:description" content="&amp;lt;script&amp;gt;元素属性   属性 定义                                               async 【可选】。可以异步加载，表示可以立即下载此脚本，但不影响页面其他操作。只对外部脚本有效。       charset 【可选】。表示通过src属性制定代码的字符集。由于多数浏览器会忽略此属性，很少人使用。       defer 【可选】。表">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-31T20:40:41.000Z">
+<meta property="og:updated_time" content="2018-02-10T19:33:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计（第3版）之《script元素》">
 <meta name="twitter:description" content="&amp;lt;script&amp;gt;元素属性   属性 定义                                               async 【可选】。可以异步加载，表示可以立即下载此脚本，但不影响页面其他操作。只对外部脚本有效。       charset 【可选】。表示通过src属性制定代码的字符集。由于多数浏览器会忽略此属性，很少人使用。       defer 【可选】。表">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,868
+                  1,970
                 </span>
               
 
@@ -514,12 +514,14 @@
 <li>可缓存：浏览器可以根据设置缓存所有外部的JavaScript文件。如果不同页面会使用同一个文件，那么此文件就只需要下次一次即可，会加快页面的加载速度。</li>
 <li>适应未来：通过外部文件来包含JavaScrip无需使用注释hack。HTML和XHTML引入文件的方式相同。</li>
 </ol>
-<h1 id="文档模式"><a href="#文档模式" class="headerlink" title="文档模式"></a>文档模式</h1><h2 id="什么是DOCTYPE"><a href="#什么是DOCTYPE" class="headerlink" title="什么是DOCTYPE"></a>什么是DOCTYPE</h2><p>DCOTYPE，英文是Document Type Declaration (文档类型声明)。通常情况下，DOCTYPE位于HTML文档最前面的位置，HTML根元素起始标签之前。这样一来，浏览器在解析HTML文档之前就可以确定文档类型，从而决定使用哪种渲染模式（不同的渲染模式回影响浏览器对CSS的渲染甚至JavaScript脚本的解析）。</p>
+<h1 id="文档模式"><a href="#文档模式" class="headerlink" title="文档模式"></a>文档模式</h1><h2 id="什么是DOCTYPE"><a href="#什么是DOCTYPE" class="headerlink" title="什么是DOCTYPE"></a>什么是DOCTYPE</h2><p>DCOTYPE，英文是Document Type Declaration (文档类型声明)。通常情况下，DOCTYPE位于HTML文档最前面的位置，HTML根元素起始标签之前。这样一来，浏览器在解析HTML文档之前就可以确定文档类型，从而决定使用哪种渲染模式（不同的渲染模式会影响浏览器对CSS的渲染甚至JavaScript脚本的解析）。</p>
 <h2 id="文档类型与渲染模式"><a href="#文档类型与渲染模式" class="headerlink" title="文档类型与渲染模式"></a>文档类型与渲染模式</h2><p>目前浏览器的排版引擎有三种模式：混杂模式(Quirks mode)、接近标准模式(Almost standards mode)、标准模式(Standards mode)。</p>
 <ol>
 <li><p>对于标准模式，可以通过以下任意一种文档类型开启：</p>
  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">HTML</span> <span class="attr">5</span> <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">HTML</span> <span class="attr">4.01</span> 严格型 <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/TR/html4/strict.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">XHTML</span> <span class="attr">1.0</span> 严格型 <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC </span></span><br><span class="line"><span class="meta">"-//W3C//DTD XHTML 1.0 Strict//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<ol>
 <li><p>对于接近标准模式，可以通过使用过渡型(transitional)或框架集型(frameset)文档当类型来开启：</p>
  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">HTML</span> <span class="attr">4.01</span> 过渡型 <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC </span></span><br><span class="line"><span class="meta">"-//W3C//DTD HTML 4.01 Transitional//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/TR/html4/loose.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">HTML</span> <span class="attr">4.01</span> 框架集型 <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC </span></span><br><span class="line"><span class="meta">"-//W3C//DTD HTML 4.01 Frameset//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/TR/html4/frameset.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">XHTML</span> <span class="attr">1.0</span> 过渡型 <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC </span></span><br><span class="line"><span class="meta">"-//W3C//DTD XHTML 1.0 Transitional//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">--</span> <span class="attr">XHTML</span> <span class="attr">1.0</span> 框架集型 <span class="attr">--</span> &gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC </span></span><br><span class="line"><span class="meta">"-//W3C//DTD XHTML 1.0 Frameset//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -527,6 +529,12 @@
 </li>
 </ol>
 <p>标准模式与接近标准模式非常接近，从名字上都可以看得出来，他们之间的差异几乎可以忽略不计，因此当有人提交“标准模式”时，指的可能是其他的任意一种。而且，检测文档模式时也不会发现有什么不同。</p>
+<h1 id="lt-noscript-gt-标签"><a href="#lt-noscript-gt-标签" class="headerlink" title="&lt;noscript&gt;标签"></a><code>&lt;noscript&gt;</code>标签</h1><p>因为早期有些浏览器不支持JavaScript标签，为了能平稳退化，发明了<code>&lt;noscript&gt;</code>标签用来显示替代内容。<code>&lt;noscript&gt;</code>标签里面可以有能在<code>&lt;body&gt;</code>标签里面出现的所有HTML标签，除了<code>&lt;script&gt;</code>标签。</p>
+<p>只有在两种情况下才会显示<code>&lt;noscript&gt;</code>标签里面的内容：</p>
+<ol>
+<li>不支持JavaScript脚本。</li>
+<li>禁止使用JavaScript脚本。</li>
+</ol>
 
       
     </div>
@@ -546,7 +554,7 @@
   <p><span>本文标题:</span><a href="/2018/01/15/javascript高级程序设计（第3版）之《script元素》/">javascript高级程序设计（第3版）之《script元素》</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
   <p><span>发布时间:</span>2018年01月15日 - 00:01</p>
-  <p><span>最后更新:</span>2018年02月01日 - 04:02</p>
+  <p><span>最后更新:</span>2018年02月11日 - 03:02</p>
   <p><span>原始链接:</span><a href="/2018/01/15/javascript高级程序设计（第3版）之《script元素》/" title="javascript高级程序设计（第3版）之《script元素》">http://jirengujack.cn/2018/01/15/javascript高级程序设计（第3版）之《script元素》/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/01/15/javascript高级程序设计（第3版）之《script元素》/"  aria-label="复制成功！"></i></span>
   </p>
@@ -717,7 +725,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -801,7 +809,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-script-gt-元素属性"><span class="nav-number">1.</span> <span class="nav-text">&lt;script&gt;元素属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#defer延迟脚本"><span class="nav-number">1.1.</span> <span class="nav-text">defer延迟脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async异步脚本"><span class="nav-number">1.2.</span> <span class="nav-text">async异步脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-scrip-gt-元素嵌入JavaScript代码的用法"><span class="nav-number">2.</span> <span class="nav-text">&lt;scrip&gt;元素嵌入JavaScript代码的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种用法"><span class="nav-number">2.1.</span> <span class="nav-text">两种用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别强调"><span class="nav-number">2.2.</span> <span class="nav-text">特别强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种方法的优缺点"><span class="nav-number">2.3.</span> <span class="nav-text">两种方法的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文档模式"><span class="nav-number">3.</span> <span class="nav-text">文档模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是DOCTYPE"><span class="nav-number">3.1.</span> <span class="nav-text">什么是DOCTYPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档类型与渲染模式"><span class="nav-number">3.2.</span> <span class="nav-text">文档类型与渲染模式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-script-gt-元素属性"><span class="nav-number">1.</span> <span class="nav-text">&lt;script&gt;元素属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#defer延迟脚本"><span class="nav-number">1.1.</span> <span class="nav-text">defer延迟脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async异步脚本"><span class="nav-number">1.2.</span> <span class="nav-text">async异步脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-scrip-gt-元素嵌入JavaScript代码的用法"><span class="nav-number">2.</span> <span class="nav-text">&lt;scrip&gt;元素嵌入JavaScript代码的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种用法"><span class="nav-number">2.1.</span> <span class="nav-text">两种用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别强调"><span class="nav-number">2.2.</span> <span class="nav-text">特别强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种方法的优缺点"><span class="nav-number">2.3.</span> <span class="nav-text">两种方法的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文档模式"><span class="nav-number">3.</span> <span class="nav-text">文档模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是DOCTYPE"><span class="nav-number">3.1.</span> <span class="nav-text">什么是DOCTYPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档类型与渲染模式"><span class="nav-number">3.2.</span> <span class="nav-text">文档类型与渲染模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-noscript-gt-标签"><span class="nav-number">4.</span> <span class="nav-text">&lt;noscript&gt;标签</span></a></li></ol></div>
             
 
           </div>
@@ -852,7 +860,7 @@
 </div>
 <div class="theme-info">
   
-  <span class="post-count">博客全站共8.6k字</span>
+  <span class="post-count">博客全站共9.8k字</span>
 </div>
         
 
