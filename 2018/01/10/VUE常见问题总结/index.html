@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="魔尊重楼">
 <meta property="og:description" content="npm run build不成功使用vue-cli，并且使用router的时候，build之后页面没有任何报错，但是页面出现空白，可能有两个原因：  build配置路径错误 router使用了‘history’">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T19:09:07.000Z">
+<meta property="og:updated_time" content="2018-03-02T21:08:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VUE常见问题总结">
 <meta name="twitter:description" content="npm run build不成功使用vue-cli，并且使用router的时候，build之后页面没有任何报错，但是页面出现空白，可能有两个原因：  build配置路径错误 router使用了‘history’">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  419
+                  473
                 </span>
               
 
@@ -456,6 +456,8 @@
 <p><em>直接使用v-bind绑定style，引号里面属性值引用v-for里面的数据即可动态绑定style</em></p>
 <h1 id="使用readonly，可以给input添加click事件"><a href="#使用readonly，可以给input添加click事件" class="headerlink" title="使用readonly，可以给input添加click事件"></a>使用readonly，可以给input添加click事件</h1><p>如果使用disabled，给input添加click事件就没有效果。也可以动态控制readonly状态</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">click</span>=<span class="string">"alertMessage"</span> <span class="attr">:readonly</span> = <span class="string">'readonly'</span>&gt;</span></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    el: '#app';</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            readonly: true || false//这个可以根据具体情况设置boolean值</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="input-type-为number还是输入字母e"><a href="#input-type-为number还是输入字母e" class="headerlink" title="input type 为number还是输入字母e"></a>input type 为number还是输入字母e</h1><p>因为字母e数学上代表2.71828，所以它也还是一个数字，可以使用一下代码来解决</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'number'</span> <span class="attr">onkeypress</span>=<span class="string">'return( /[\d]/.test(String.fromCharCode(event.keyCode) ) )'</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -475,7 +477,7 @@
   <p><span>本文标题:</span><a href="/2018/01/10/VUE常见问题总结/">VUE常见问题总结</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
   <p><span>发布时间:</span>2018年01月10日 - 02:01</p>
-  <p><span>最后更新:</span>2018年01月20日 - 03:01</p>
+  <p><span>最后更新:</span>2018年03月03日 - 05:03</p>
   <p><span>原始链接:</span><a href="/2018/01/10/VUE常见问题总结/" title="VUE常见问题总结">http://jirengujack.cn/2018/01/10/VUE常见问题总结/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/01/10/VUE常见问题总结/"  aria-label="复制成功！"></i></span>
   </p>
@@ -734,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm-run-build不成功"><span class="nav-number">1.</span> <span class="nav-text">npm run build不成功</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用v-for里面的数据动态绑定class"><span class="nav-number">2.</span> <span class="nav-text">使用v-for里面的数据动态绑定class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用v-for里面的数据动态绑定style"><span class="nav-number">3.</span> <span class="nav-text">使用v-for里面的数据动态绑定style</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用readonly，可以给input添加click事件"><span class="nav-number">4.</span> <span class="nav-text">使用readonly，可以给input添加click事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm-run-build不成功"><span class="nav-number">1.</span> <span class="nav-text">npm run build不成功</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用v-for里面的数据动态绑定class"><span class="nav-number">2.</span> <span class="nav-text">使用v-for里面的数据动态绑定class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用v-for里面的数据动态绑定style"><span class="nav-number">3.</span> <span class="nav-text">使用v-for里面的数据动态绑定style</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用readonly，可以给input添加click事件"><span class="nav-number">4.</span> <span class="nav-text">使用readonly，可以给input添加click事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#input-type-为number还是输入字母e"><span class="nav-number">5.</span> <span class="nav-text">input type 为number还是输入字母e</span></a></li></ol></div>
             
 
           </div>
@@ -785,7 +787,7 @@
 </div>
 <div class="theme-info">
   
-  <span class="post-count">博客全站共9.8k字</span>
+  <span class="post-count">博客全站共10.3k字</span>
 </div>
         
 
