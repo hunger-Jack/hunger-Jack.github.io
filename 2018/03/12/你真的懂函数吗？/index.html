@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="魔尊重楼" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="函数声明方式匿名函数function后面直接跟括号，中间没有函数名的就是匿名函数。 123456let fn = function() &amp;#123;	console.log(&apos;我是fn&apos;)&amp;#125;let fn2 = fnconsole.log(fn.name) //fnconsole.log(fn2.name)//fn，fn和fn2指向的是同一个function。 具名函数function后面">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你真的懂函数吗？">
+<meta property="og:url" content="http://jirengujack.cn/2018/03/12/你真的懂函数吗？/index.html">
+<meta property="og:site_name" content="魔尊重楼">
+<meta property="og:description" content="函数声明方式匿名函数function后面直接跟括号，中间没有函数名的就是匿名函数。 123456let fn = function() &amp;#123;	console.log(&apos;我是fn&apos;)&amp;#125;let fn2 = fnconsole.log(fn.name) //fnconsole.log(fn2.name)//fn，fn和fn2指向的是同一个function。 具名函数function后面">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-11T22:33:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你真的懂函数吗？">
+<meta name="twitter:description" content="函数声明方式匿名函数function后面直接跟括号，中间没有函数名的就是匿名函数。 123456let fn = function() &amp;#123;	console.log(&apos;我是fn&apos;)&amp;#125;let fn2 = fnconsole.log(fn.name) //fnconsole.log(fn2.name)//fn，fn和fn2指向的是同一个function。 具名函数function后面">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jirengujack.cn/2018/03/12/你真的懂函数吗？/"/>
+
+
+
+
+
+  <title>你真的懂函数吗？ | 魔尊重楼</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/hunger-Jack"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔尊重楼</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jirengujack.cn/2018/03/12/你真的懂函数吗？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mozun.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔尊重楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你真的懂函数吗？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T06:31:17+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/12/你真的懂函数吗？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/12/你真的懂函数吗？/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,562
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="函数声明方式"><a href="#函数声明方式" class="headerlink" title="函数声明方式"></a>函数声明方式</h1><h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>function后面直接跟括号，中间没有函数名的就是匿名函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'我是fn'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fn2 = fn</span><br><span class="line"><span class="built_in">console</span>.log(fn.name) <span class="comment">//fn</span></span><br><span class="line"><span class="built_in">console</span>.log(fn2.name)<span class="comment">//fn，fn和fn2指向的是同一个function。</span></span><br></pre></td></tr></table></figure>
+<h2 id="具名函数"><a href="#具名函数" class="headerlink" title="具名函数"></a>具名函数</h2><p>function后面有函数名字的，不是直接跟括号的的就是具名函数。<br>如果把一个具名函数赋值给一个变量，那么这个具名函数的作用域就不是window了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'function'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn.name) <span class="comment">//fn1</span></span><br><span class="line"><span class="built_in">console</span>.log(fn1,name) <span class="comment">// ReferenceError: fn1 is not defined</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数是es6知识点，具有以下几个特点：</p>
+<ol>
+<li>如果只有一个参数，可以省略小括号。</li>
+<li>如果有至少有两个参数，必须加小括号。</li>
+<li>如果函数体只有一句话可以省略花括号，并且这一句作为返回值return。</li>
+<li>如果函数体至少有两句必须加上花括号。</li>
+<li>箭头函数里面是没有this的。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">e</span> =&gt;</span> e+<span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(fn(<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fn1 = <span class="function">(<span class="params">i,y</span>) =&gt;</span> i+y</span><br><span class="line"><span class="built_in">console</span>.log(fn1(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fn2 = <span class="function">(<span class="params">i,y</span>) =&gt;</span> &#123;</span><br><span class="line">  i+=<span class="number">1</span>;</span><br><span class="line">  y+=<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> i+y</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn2(<span class="number">5</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="词法作用域（静态作用域）"><a href="#词法作用域（静态作用域）" class="headerlink" title="词法作用域（静态作用域）"></a>词法作用域（静态作用域）</h1><blockquote>
+<p>静态作用域又叫做词法作用域，采用词法作用域的变量叫词法变量。词法变量有一个在编译时静态确定的作用域。词法变量的作用域可以是一个函数或一段代码，该变量在这段代码区域内可见（visibility）；在这段区域以外该变量不可见（或无法访问）。词法作用域里，取变量的值时，会检查函数定义时的文本环境，捕捉函数定义时对该变量的绑定。</p>
+</blockquote>
+<p>词法作用域：变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexical scope）。</p>
+<p>通过词法作用域树能判断变量指向关系，但是不能断定变量的值，变量的值还需要根据执行顺序进一步作出判断，看一下例子：</p>
+<p>因为JavaScript采用的是词法作用域，bian’liang的作用域基于函数创建的位置，跟调用时的位置无关。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>,</span><br><span class="line">    j = <span class="number">2</span>,</span><br><span class="line">    k = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">o, p, x, q</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">4</span>;</span><br><span class="line">    alert(i);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">r, s</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">11</span>,</span><br><span class="line">            y = <span class="number">5</span>;</span><br><span class="line">        alert(i);</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">t</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> z = <span class="number">6</span>;</span><br><span class="line">            alert(i);</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> d = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(y);</span><br><span class="line">        &#125;;</span><br><span class="line">        c(<span class="number">60</span>);</span><br><span class="line">        d();</span><br><span class="line">    &#125;;</span><br><span class="line">    b(<span class="number">40</span>, <span class="number">50</span>);</span><br><span class="line">&#125;</span><br><span class="line">a(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>); <span class="comment">//1 11 11 5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 模拟建立一棵语法分析树，存储function内的变量和方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> SyntaxTree = &#123;</span><br><span class="line">        <span class="comment">// 全局对象在语法分析树中的表示</span></span><br><span class="line">    <span class="built_in">window</span>: &#123;</span><br><span class="line">        variables:&#123;</span><br><span class="line">            i:&#123; <span class="attr">value</span>:<span class="number">1</span>&#125;,</span><br><span class="line">            j:&#123; <span class="attr">value</span>:<span class="number">2</span>&#125;,</span><br><span class="line">            k:&#123; <span class="attr">value</span>:<span class="number">3</span>&#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        functions:&#123;</span><br><span class="line">            a: <span class="keyword">this</span>.a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    a:&#123;</span><br><span class="line">        variables:&#123;</span><br><span class="line">            x:<span class="string">'undefined'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        functions:&#123;</span><br><span class="line">            b: <span class="keyword">this</span>.b</span><br><span class="line">        &#125;,</span><br><span class="line">        scope: <span class="keyword">this</span>.window</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    b:&#123;</span><br><span class="line">        variables:&#123;</span><br><span class="line">        		 i:<span class="string">'undefined'</span></span><br><span class="line">            y:<span class="string">'undefined'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        functions:&#123;</span><br><span class="line">            c: <span class="keyword">this</span>.c,</span><br><span class="line">            d: <span class="keyword">this</span>.d</span><br><span class="line">        &#125;,</span><br><span class="line">        scope: <span class="keyword">this</span>.a</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    c:&#123;</span><br><span class="line">        variables:&#123;</span><br><span class="line">            z:<span class="string">'undefined'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        functions:&#123;&#125;,</span><br><span class="line">        scope: <span class="keyword">this</span>.b</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    d:&#123;</span><br><span class="line">        variables:&#123;&#125;,</span><br><span class="line">        functions:&#123;&#125;,</span><br><span class="line">        scope: &#123;</span><br><span class="line">           scope: <span class="keyword">this</span>.b</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 活动对象：函数执行时创建的活动对象列表</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> ActiveObject = &#123;</span><br><span class="line">    <span class="built_in">window</span>: &#123;</span><br><span class="line">        variables: &#123;</span><br><span class="line">            i: &#123; <span class="attr">value</span>: <span class="number">1</span> &#125;</span><br><span class="line">            j: &#123; <span class="attr">value</span>: <span class="number">2</span> &#125;</span><br><span class="line">            k: &#123; <span class="attr">value</span>: <span class="number">3</span> &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        functions: &#123;</span><br><span class="line">	            a: <span class="keyword">this</span>.a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    a: &#123;</span><br><span class="line">        variables: &#123;</span><br><span class="line">            x: &#123; <span class="attr">vale</span>: <span class="number">4</span> &#125;,</span><br><span class="line">            functions: &#123;</span><br><span class="line">                b： <span class="keyword">this</span>.b</span><br><span class="line">            &#125;,</span><br><span class="line">            scope: <span class="keyword">this</span>.window,</span><br><span class="line">            params: &#123;</span><br><span class="line">                o: &#123; <span class="attr">value</span>: <span class="number">10</span> &#125;,</span><br><span class="line">                p: &#123; <span class="attr">value</span>: <span class="number">20</span> &#125;,</span><br><span class="line">                x: <span class="keyword">this</span>.variables.x</span><br><span class="line">                q: &#123; <span class="attr">vale</span>: <span class="string">'undefined'</span> &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="built_in">arguments</span>: [<span class="keyword">this</span>.params.o, <span class="keyword">this</span>.params.p, <span class="keyword">this</span>.params.x]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    b: &#123;</span><br><span class="line">        variables: &#123;</span><br><span class="line">            i: &#123; <span class="attr">vale</span>: <span class="number">11</span> &#125;,</span><br><span class="line">            y: &#123; <span class="attr">vale</span>: <span class="number">5</span> &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        functions: &#123;</span><br><span class="line">            c: <span class="keyword">this</span>.c,</span><br><span class="line">            d: <span class="keyword">this</span>.d</span><br><span class="line">        &#125;,</span><br><span class="line">        params: &#123;</span><br><span class="line">            r: &#123; <span class="attr">value</span>: <span class="number">40</span> &#125;</span><br><span class="line">            s: &#123; <span class="attr">value</span>: <span class="number">50</span> &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="built_in">arguments</span>: [<span class="keyword">this</span>.params.r, <span class="keyword">this</span>.params.scope]</span><br><span class="line">        scope: <span class="keyword">this</span>.a</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    c: &#123;</span><br><span class="line">        variables: &#123;</span><br><span class="line">            z: &#123; <span class="attr">value</span>: <span class="number">6</span> &#125;,</span><br><span class="line">            functions: &#123;&#125;,</span><br><span class="line">            params: &#123;</span><br><span class="line">                t: &#123; <span class="attr">value</span>: <span class="number">60</span> &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="built_in">arguments</span>: [<span class="keyword">this</span>.params.t]</span><br><span class="line">            scope: <span class="keyword">this</span>.b</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    d: &#123;</span><br><span class="line">        variables: &#123;&#125;,</span><br><span class="line">        functions: &#123;&#125;,</span><br><span class="line">        params: &#123;&#125;,</span><br><span class="line">        <span class="built_in">arguments</span>: []</span><br><span class="line">        <span class="keyword">this</span>.scope: <span class="keyword">this</span>.b</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="call-stack"><a href="#call-stack" class="headerlink" title="call stack"></a>call stack</h1><p>进入call stack 时的一些规则：</p>
+<ol>
+<li><p>函数的所有形参(如果我们是在函数执行上下文中)</p>
+<ul>
+<li>由名称和对应值组成的一个变量对象的属性被创建；没有传递对应参数的话，那么由名称和 undefined 值组成的一种变量对象的属性也将被创建。</li>
+</ul>
+</li>
+<li><p>所有函数声明(FunctionDeclaration, FD)</p>
+<ul>
+<li>由名称和对应值（函数对象(function-object)）组成一个变量对象的属性被创建；如果变量对象已经存在相同名称的属性，则完全替换这个属性。</li>
+</ul>
+</li>
+<li><p>所有变量声明(var, VariableDeclaration)</p>
+<ul>
+<li>由名称和对应值（undefined）组成一个变量对象的属性被创建；如果变量名称跟已经声明的形式参数或函数相同，则变量声明不会干扰已经存在的这类属性。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* example1:形参</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	var a = 10</span></span><br><span class="line"><span class="comment">	var b = undefined</span></span><br><span class="line"><span class="comment">	根据规则1，在进入执行上下文时会自动对形参声明并且赋值。</span></span><br><span class="line"><span class="comment">	*/</span> </span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">10</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="title">_e</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>) </span>&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">10</span>); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* example2:函数声明</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="title">_e</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">10</span>); <span class="comment">// ƒ a() &#123;&#125; .根据规则2，进入执行上下文会自动声明形参并且赋值，但是同名的函数声明会替换这个变量。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span> <span class="title">_e</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">10</span>); <span class="comment">// 10 .根据规则2，进入执行上下文会自动声明形参并且赋值，但是同名的函数声明会替换这个变量。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* example3:变量声明</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(foo);<span class="comment">//会打印出foo函数，根据规则3，同名的变量声明不会干扰函数声明和形参</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"foo"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>未完待续。。。。。。。。</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/12/你真的懂函数吗？/">你真的懂函数吗？</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
+  <p><span>发布时间:</span>2018年03月12日 - 06:03</p>
+  <p><span>最后更新:</span>2018年03月12日 - 06:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/12/你真的懂函数吗？/" title="你真的懂函数吗？">http://jirengujack.cn/2018/03/12/你真的懂函数吗？/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/03/12/你真的懂函数吗？/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢指导点评，要不打赏点？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate-wechat.png" alt="Jack 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate-alipay.png" alt="Jack 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/11/javascript高级程序设计（第3版）之《基本概念》/" rel="next" title="javascript高级程序设计（第3版）之《基本概念》">
+                <i class="fa fa-chevron-left"></i> javascript高级程序设计（第3版）之《基本概念》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mozun.jpeg"
+                alt="Jack" />
+            
+              <p class="site-author-name" itemprop="name">Jack</p>
+              <p class="site-description motion-element" itemprop="description">前端|自学|小白</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hunger-Jack" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.jirengujack.cn" target="_blank" title="Blog">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Blog</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/66afec79f1c2" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数声明方式"><span class="nav-number">1.</span> <span class="nav-text">函数声明方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具名函数"><span class="nav-number">1.2.</span> <span class="nav-text">具名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数"><span class="nav-number">1.3.</span> <span class="nav-text">箭头函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法作用域（静态作用域）"><span class="nav-number">2.</span> <span class="nav-text">词法作用域（静态作用域）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#call-stack"><span class="nav-number">3.</span> <span class="nav-text">call stack</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jack</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+--!>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+<div class="theme-info">
+  
+  <span class="post-count">博客全站共11.8k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'h4ccHlvwmpUumg44zvNKwL3x-gzGzoHsz',
+        appKey: 'UIP7AiBtXuHPhk7RqTAS4zWz',
+        placeholder: '自学中，多多评论指出错误，谢谢啦~~~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
