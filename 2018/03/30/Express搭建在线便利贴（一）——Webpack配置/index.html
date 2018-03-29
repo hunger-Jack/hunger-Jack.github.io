@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nodeJs,express,webpack,less," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="魔尊重楼" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="使用express应用生成器搭建项目 使用一下命令安装生成器  1$ npm install express-generator -g  使用-h 查看命令选项  12345678910111213141516$ express -h  Usage: express [options][dir]  Options:    -h, --help          output usage infor">
+<meta name="keywords" content="nodeJs,express,webpack,less">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express搭建在线便利贴（一）——Webpack配置">
+<meta property="og:url" content="http://jirengujack.cn/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/index.html">
+<meta property="og:site_name" content="魔尊重楼">
+<meta property="og:description" content="使用express应用生成器搭建项目 使用一下命令安装生成器  1$ npm install express-generator -g  使用-h 查看命令选项  12345678910111213141516$ express -h  Usage: express [options][dir]  Options:    -h, --help          output usage infor">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-29T22:12:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express搭建在线便利贴（一）——Webpack配置">
+<meta name="twitter:description" content="使用express应用生成器搭建项目 使用一下命令安装生成器  1$ npm install express-generator -g  使用-h 查看命令选项  12345678910111213141516$ express -h  Usage: express [options][dir]  Options:    -h, --help          output usage infor">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jirengujack.cn/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/"/>
+
+
+
+
+
+  <title>Express搭建在线便利贴（一）——Webpack配置 | 魔尊重楼</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/hunger-Jack"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔尊重楼</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jirengujack.cn/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mozun.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔尊重楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Express搭建在线便利贴（一）——Webpack配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T06:12:19+08:00">
+                2018-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodejs/express/" itemprop="url" rel="index">
+                    <span itemprop="name">express</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,134
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="使用express应用生成器搭建项目"><a href="#使用express应用生成器搭建项目" class="headerlink" title="使用express应用生成器搭建项目"></a>使用express应用生成器搭建项目</h1><ol>
+<li><p>使用一下命令安装生成器</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install express-generator -g</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用-h 查看命令选项</p>
+ <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ express -h</span><br><span class="line"></span><br><span class="line">  Usage: express [options][dir]</span><br><span class="line"></span><br><span class="line">  Options:</span><br><span class="line"></span><br><span class="line">    -<span class="ruby">h, --help          output usage information</span></span><br><span class="line"><span class="ruby">        --version       output the version number</span></span><br><span class="line"><span class="ruby">    -e, --ejs           add ejs engine support</span></span><br><span class="line"><span class="ruby">        --hbs           add handlebars engine support</span></span><br><span class="line"><span class="ruby">        --pug           add pug engine support</span></span><br><span class="line"><span class="ruby">    -H, --hogan         add hogan.js engine support</span></span><br><span class="line"><span class="ruby">    -v, --view &lt;engine&gt; add view &lt;engine&gt; support (ejs<span class="params">|hbs|</span>hjs<span class="params">|jade|</span>pug<span class="params">|twig|</span>			vash) (defaults to jade)</span></span><br><span class="line"><span class="ruby">    -c, --css &lt;engine&gt;  add stylesheet &lt;engine&gt; support (less<span class="params">|stylus|</span>compass<span class="params">|			sass) (defaults to plain css)</span></span></span><br><span class="line"><span class="ruby">        --git           add .gitignore</span></span><br><span class="line"><span class="ruby">    -f, --force         force on non-empty directory</span></span><br></pre></td></tr></table></figure>
+ <a id="more"></a></li>
+<li><p>创建名为node-sticky的express应用程序</p>
+ <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ express --pug --<span class="attr">css=</span>less <span class="keyword">node</span><span class="title">-sticky</span>//我默认安装了less和pug模板引擎</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> node-sticky</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动应用程序</p>
+ <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="literal">start</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">node</span><span class="title">-sticky</span>@<span class="number">0.0</span>.<span class="number">0</span> <span class="literal">start</span> /<span class="keyword">node</span><span class="title">-sticky</span></span><br><span class="line">   &gt; <span class="keyword">node</span> <span class="title">./bin</span>/www</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在浏览器输入localhost:3000 就可以看到欢迎画面了。</p>
+</li>
+<li><p>目前的目录结构</p>
+ <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	├── app.js</span><br><span class="line">├── bin</span><br><span class="line">│   └── www</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── images</span><br><span class="line">│   ├── javascripts</span><br><span class="line">│   └── stylesheets</span><br><span class="line">│       └── style.css</span><br><span class="line">├── routes</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   └── users.js</span><br><span class="line">└── views</span><br><span class="line">    ├── error.pug</span><br><span class="line">    ├── index.pug</span><br><span class="line">    └── layout.pug</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="添加src目录，配置相应的webpack"><a href="#添加src目录，配置相应的webpack" class="headerlink" title="添加src目录，配置相应的webpack"></a>添加src目录，配置相应的webpack</h1><ol>
+<li><p>我们把前端的源码放在src目录下，使用webpack打包到node的public目录下面。添加之后的目录结构为：</p>
+ <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├── app.js</span><br><span class="line">├── bin</span><br><span class="line">|<span class="string">  └── www</span></span><br><span class="line"><span class="string">├── package-lock.json</span></span><br><span class="line"><span class="string">├── package.json</span></span><br><span class="line"><span class="string">├── public</span></span><br><span class="line">|<span class="string">  ├── images</span></span><br><span class="line">|<span class="string">  ├── javascripts</span></span><br><span class="line">|<span class="string">  └── stylesheets</span></span><br><span class="line">|<span class="string">     └── style.less</span></span><br><span class="line"><span class="string">├── routes</span></span><br><span class="line">|<span class="string">  ├── index.js</span></span><br><span class="line">|<span class="string">  └── users.js</span></span><br><span class="line"><span class="string">├── src              			//前端源码目录</span></span><br><span class="line">|<span class="string">  ├── js</span></span><br><span class="line">|<span class="string">  </span>|<span class="string">  ├── app        			//webpack入口目录</span></span><br><span class="line">|<span class="string">  </span>|<span class="string">  </span>|<span class="string">  └── index.js</span></span><br><span class="line">|<span class="string">  </span>|<span class="string">  ├── lib						//一些工具目录</span></span><br><span class="line">|<span class="string">  </span>|<span class="string">  </span>|<span class="string">—— module             //js模块</span></span><br><span class="line">|<span class="string">  ├── less							//less目录</span></span><br><span class="line">|<span class="string">  └── webpack.config.js    //webpack配置文件</span></span><br><span class="line"><span class="string">└── views</span></span><br><span class="line"><span class="string">   ├── error.pug</span></span><br><span class="line"><span class="string">   ├── index.pug</span></span><br><span class="line"><span class="string">   └── layout.pug</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我使用的mac的tree命令生成目录树，具体命令：<strong>tree -l 4 –ignore=node_modules</strong>，把依赖目录忽略。</p>
+</blockquote>
+</li>
+<li><p>配置webpack</p>
+<ol>
+<li><p>配置之前需要先安装一下webpack依赖</p>
+ <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack --<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后简单配置webpack入口文件和出口文件。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: path.join(__dirname,<span class="string">'/js/app/index.js'</span>),</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname,<span class="string">'../public'</span>),</span><br><span class="line">        filename: <span class="string">'js/index.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在终端运行webpack</p>
+ <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	$ cd src</span><br><span class="line">	$ webpack</span><br><span class="line">	</span><br><span class="line">	Hash: <span class="number">80</span>c9ec3163fbc2ca01c3</span><br><span class="line">Version: webpack <span class="number">4.3</span>.<span class="number">0</span></span><br><span class="line">Time: <span class="number">265ms</span></span><br><span class="line">Built at: <span class="number">2018</span>-<span class="number">3</span>-<span class="number">29</span> <span class="number">05</span>:<span class="number">21</span>:<span class="number">58</span></span><br><span class="line">      Asset       Size  Chunks             Chunk Names</span><br><span class="line">js/index<span class="selector-class">.js</span>  <span class="number">676</span> bytes       <span class="number">0</span>  [emitted]  main</span><br><span class="line">Entrypoint main = js/index.js</span><br><span class="line">   [<span class="number">0</span>] ./js/module/<span class="selector-tag">b</span><span class="selector-class">.js</span> <span class="number">36</span> bytes &#123;<span class="number">0</span>&#125; [built]</span><br><span class="line">   [<span class="number">1</span>] ./js/module/<span class="selector-tag">a</span><span class="selector-class">.js</span> <span class="number">36</span> bytes &#123;<span class="number">0</span>&#125; [built]</span><br><span class="line">   [<span class="number">2</span>] ./js/app/index<span class="selector-class">.js</span> <span class="number">65</span> bytes &#123;<span class="number">0</span>&#125; [built]</span><br><span class="line"></span><br><span class="line">	WARNING <span class="keyword">in</span> configuration</span><br><span class="line">	The <span class="string">'mode'</span> option has not been set. Set <span class="string">'mode'</span> option to <span class="string">'development'</span> or <span class="string">'production'</span> to enable defaults <span class="keyword">for</span> this environment.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后给一个警告，要加上webpack运行的环境，在后面加上就好了</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> webpack --mode development</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="配置package-json的script脚本"><a href="#配置package-json的script脚本" class="headerlink" title="配置package.json的script脚本"></a>配置package.json的script脚本</h1><ol>
+<li><p>但是我们不能一直在src里面执行，我们要在根目录下执行，所有要使用package.json里面的srcipt字段脚本命令。需要配置webpack的–config指定脚本文件。</p>
+ <figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"node-sticky"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="string">"private"</span>: true,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"webpack --config=src/webpack.config.js --mode=development"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"cookie-parser"</span>: <span class="string">"~1.4.3"</span>,</span><br><span class="line">    <span class="string">"debug"</span>: <span class="string">"~2.6.9"</span>,</span><br><span class="line">    <span class="string">"express"</span>: <span class="string">"~4.16.0"</span>,</span><br><span class="line">    <span class="string">"http-errors"</span>: <span class="string">"~1.6.2"</span>,</span><br><span class="line">    <span class="string">"less-middleware"</span>: <span class="string">"~2.2.1"</span>,</span><br><span class="line">    <span class="string">"morgan"</span>: <span class="string">"~1.9.0"</span>,</span><br><span class="line">    <span class="string">"pug"</span>: <span class="string">"2.0.0-beta11"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^4.3.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后进入个目录执行npm run webpack就会发现报错了。</p>
+ <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">cd</span> ..</span><br><span class="line">$ npm <span class="keyword">run</span> webpack                                                                                                            </span><br><span class="line"></span><br><span class="line">&gt; node-sticky@0.0.0 webpack /Users/lanbo/projects/node-sticky</span><br><span class="line">&gt; webpack --config=src/webpack.config.js</span><br><span class="line"></span><br><span class="line">The <span class="keyword">CLI</span> moved into a <span class="keyword">separate</span> package: webpack-<span class="keyword">cli</span>.</span><br><span class="line">Please install 'webpack-<span class="keyword">cli</span>' <span class="keyword">in</span> addition to webpack itself to <span class="keyword">use</span> the <span class="keyword">CLI</span>.</span><br><span class="line">-&gt; When using npm: npm install webpack-<span class="keyword">cli</span> -<span class="built_in">D</span></span><br><span class="line">-&gt; When using yarn: yarn add webpack-<span class="keyword">cli</span> -<span class="built_in">D</span></span><br><span class="line">npm <span class="keyword">ERR</span>! code ELIFECYCLE</span><br><span class="line">npm <span class="keyword">ERR</span>! errno 1</span><br><span class="line">npm <span class="keyword">ERR</span>! node-sticky@0.0.0 webpack: `webpack --config=src/webpack.config.js`</span><br><span class="line">npm <span class="keyword">ERR</span>! <span class="keyword">Exit</span> status 1</span><br><span class="line">npm <span class="keyword">ERR</span>!</span><br><span class="line">npm <span class="keyword">ERR</span>! Failed at the node-sticky@0.0.0 webpack script.</span><br><span class="line">npm <span class="keyword">ERR</span>! This is probably not a problem with npm. There is likely additional 				logging output above.</span><br><span class="line"></span><br><span class="line">npm <span class="keyword">ERR</span>! A complete <span class="keyword">log</span> of this <span class="keyword">run</span> can be found <span class="keyword">in</span>:</span><br><span class="line">npm <span class="keyword">ERR</span>!     /Users/lanbo/.npm/_logs/2018-03-28T21_33_04_687Z-debug.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>根据报错内容需要安装webpack-cli，那就照着做吧。</p>
+ <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack-cli --<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后再次执行，就发现成功啦，哈哈哈~~然后问题来了，不能每次都要自己手动去webpack，有一个工具能自动去打包就好了，正好有这个工具–onchange.</p>
+ <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install onchange --<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置script脚本</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="string">"watch"</span>: <span class="string">"onchange 'src/**/*.js' 'src/**/*.less' -- npm run webpack"</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在另外开一个终端，启动脚本就不去管他了，js和less文件有变动会自动去打包。</p>
+ <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">run</span><span class="bash"> watch</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>一点点记录，一步步成长，加油~~~~</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/">Express搭建在线便利贴（一）——Webpack配置</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
+  <p><span>发布时间:</span>2018年03月30日 - 06:03</p>
+  <p><span>最后更新:</span>2018年03月30日 - 06:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/" title="Express搭建在线便利贴（一）——Webpack配置">http://jirengujack.cn/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/03/30/Express搭建在线便利贴（一）——Webpack配置/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢指导点评，要不打赏点？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate-wechat.png" alt="Jack 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate-alipay.png" alt="Jack 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodeJs/" rel="tag"><i class="fa fa-tag"></i> nodeJs</a>
+          
+            <a href="/tags/express/" rel="tag"><i class="fa fa-tag"></i> express</a>
+          
+            <a href="/tags/webpack/" rel="tag"><i class="fa fa-tag"></i> webpack</a>
+          
+            <a href="/tags/less/" rel="tag"><i class="fa fa-tag"></i> less</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/使用vue写的计算器demo/" rel="next" title="使用vue写的计算器demo">
+                <i class="fa fa-chevron-left"></i> 使用vue写的计算器demo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/30/Express搭建在线便利贴（二）——Toast组件/" rel="prev" title="Express搭建在线便利贴（二）——Toast组件">
+                Express搭建在线便利贴（二）——Toast组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mozun.jpeg"
+                alt="Jack" />
+            
+              <p class="site-author-name" itemprop="name">Jack</p>
+              <p class="site-description motion-element" itemprop="description">前端|自学|小白</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hunger-Jack" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.jirengujack.cn" target="_blank" title="Blog">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Blog</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/66afec79f1c2" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用express应用生成器搭建项目"><span class="nav-number">1.</span> <span class="nav-text">使用express应用生成器搭建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加src目录，配置相应的webpack"><span class="nav-number">2.</span> <span class="nav-text">添加src目录，配置相应的webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置package-json的script脚本"><span class="nav-number">3.</span> <span class="nav-text">配置package.json的script脚本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jack</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+--!>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+<div class="theme-info">
+  
+  <span class="post-count">博客全站共15.3k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'h4ccHlvwmpUumg44zvNKwL3x-gzGzoHsz',
+        appKey: 'UIP7AiBtXuHPhk7RqTAS4zWz',
+        placeholder: '自学中，多多评论指出错误，谢谢啦~~~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
