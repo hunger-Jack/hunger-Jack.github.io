@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="魔尊重楼">
 <meta property="og:description" content="语法区分大小写JavaScript中的一切都是区分大小写的，变量name和变量Name是两个不同的变量。 标识符标识符是指：变量，函数，属性名，函数参数。标识符是按照以下规则组合起来的一个或者多个字符串：  第一个字符必须是字母或者下划线(_)或者美元符号($)。 其他字符可以是字母、数字、下划线、美元符号或者汉字(不推荐)  按照惯例标识符都使用驼峰式写法，就是第一个字母小写，之后的每个有意义的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T21:33:55.000Z">
+<meta property="og:updated_time" content="2018-03-29T22:22:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计（第3版）之《基本概念》">
 <meta name="twitter:description" content="语法区分大小写JavaScript中的一切都是区分大小写的，变量name和变量Name是两个不同的变量。 标识符标识符是指：变量，函数，属性名，函数参数。标识符是按照以下规则组合起来的一个或者多个字符串：  第一个字符必须是字母或者下划线(_)或者美元符号($)。 其他字符可以是字母、数字、下划线、美元符号或者汉字(不推荐)  按照惯例标识符都使用驼峰式写法，就是第一个字母小写，之后的每个有意义的">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,534
+                  1,536
                 </span>
               
 
@@ -490,7 +490,7 @@
 <ol>
 <li><p>instanceof</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span></span><br><span class="line">&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p> 从原型链上判断。例如检测A是否为B的示例，A instanceof B,如果A是B的实例就返回true，否则返回false。[] instanceof Array 返回true，但是，由于Array是Object的一个子类，也可以说[]是一个对象，以上例子可以证明。<br> 这是因为[]的<strong>proto</strong>属性指向Array的prototype，而Array.prototype.<strong>proto</strong>又指向Object.prototype,Object.prototype.<strong>proto</strong>指向null，标志着原型链结束。</p>
+<p> 从原型链上判断。例如检测A是否为B的示例，A instanceof B,如果A是B的实例就返回true，否则返回false。[] instanceof Array 返回true，但是，由于Array是Object的一个子类，也可以说[]是一个对象，以上例子可以证明。<br> 这是因为[]的 <code>__proto__</code> 属性指向Array的prototype，而<code>Array.prototype.__proto__</code> 又指向<code>Object.prototype</code>,<code>Object.prototype.__proto__</code>指向<code>null</code>，标志着原型链结束。</p>
 </li>
 <li><p>Object.prototype.toString.call(xxx)</p>
 <p> 这个是最靠谱的一个方法了。</p>
@@ -516,7 +516,7 @@
   <p><span>本文标题:</span><a href="/2018/02/11/javascript高级程序设计（第3版）之《基本概念》/">javascript高级程序设计（第3版）之《基本概念》</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Jack 的个人博客">Jack</a></p>
   <p><span>发布时间:</span>2018年02月11日 - 03:02</p>
-  <p><span>最后更新:</span>2018年03月03日 - 05:03</p>
+  <p><span>最后更新:</span>2018年03月30日 - 06:03</p>
   <p><span>原始链接:</span><a href="/2018/02/11/javascript高级程序设计（第3版）之《基本概念》/" title="javascript高级程序设计（第3版）之《基本概念》">http://jirengujack.cn/2018/02/11/javascript高级程序设计（第3版）之《基本概念》/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jirengujack.cn/2018/02/11/javascript高级程序设计（第3版）之《基本概念》/"  aria-label="复制成功！"></i></span>
   </p>
@@ -687,7 +687,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
