@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="魔尊重楼">
 <meta property="og:description" content="语法区分大小写JavaScript中的一切都是区分大小写的，变量name和变量Name是两个不同的变量。 标识符标识符是指：变量，函数，属性名，函数参数。标识符是按照以下规则组合起来的一个或者多个字符串：  第一个字符必须是字母或者下划线(_)或者美元符号($)。 其他字符可以是字母、数字、下划线、美元符号或者汉字(不推荐)  按照惯例标识符都使用驼峰式写法，就是第一个字母小写，之后的每个有意义的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T22:22:54.000Z">
+<meta property="og:updated_time" content="2018-03-29T22:33:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计（第3版）之《基本概念》">
 <meta name="twitter:description" content="语法区分大小写JavaScript中的一切都是区分大小写的，变量name和变量Name是两个不同的变量。 标识符标识符是指：变量，函数，属性名，函数参数。标识符是按照以下规则组合起来的一个或者多个字符串：  第一个字符必须是字母或者下划线(_)或者美元符号($)。 其他字符可以是字母、数字、下划线、美元符号或者汉字(不推荐)  按照惯例标识符都使用驼峰式写法，就是第一个字母小写，之后的每个有意义的">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,536
+                  1,583
                 </span>
               
 
@@ -477,24 +477,26 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	message = <span class="string">'hi'</span></span><br><span class="line">&#125;</span><br><span class="line">doSomething()<span class="comment">//函数之后之后才会有message全局变量</span></span><br><span class="line"><span class="built_in">console</span>.log(message)<span class="comment">// hi</span></span><br></pre></td></tr></table></figure>
 <p>我们还可以在同一行定义多个变量，使用逗号分隔开即可。例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> d,t,g;</span><br></pre></td></tr></table></figure>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><p>typeof是用来检测数据类型的，返回的是一个数据类型字符串。对一个值使用typeof操作符可能会返回以下几个字符串：</p>
-<ol>
-<li>“undefined”——如果这个值没有被定义</li>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><ol>
+<li><p>typeof是用来检测数据类型的，返回的是一个数据类型字符串。对一个值使用typeof操作符可能会返回以下几个字符串：</p>
+</li>
+<li><p>“undefined”——如果这个值没有被定义</p>
+</li>
 <li>“boolean”——如果这个值是布尔值</li>
 <li>“string”——如果这个值是一个字符串</li>
 <li>“number”——如果这个值是一个数值</li>
 <li>“object”——如果这个值是一个对象或者null</li>
 <li>“function”——如果这个值是一个函数</li>
 </ol>
-<p>函数也是一个对象，判断一个值是否是函数的时候就可以使用typeof，但是判断一个值是否是数组最好不要使用typeof，因为数组也是对象，使用typeof返回的是”object”。列举几个常用判断数据类型的方法：</p>
+<p>函数也是一个对象，判断一个值是否是函数的时候就可以使用typeof，但是判断一个值是否是数组最好不要使用typeof，因为数组也是对象，使用typeof返回的是”object”。除了typeof，再列举几个常用判断数据类型的方法：</p>
 <ol>
-<li><p>instanceof</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span></span><br><span class="line">&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<li><p><code>instanceof</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>)  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>)  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Object</span>)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p> 从原型链上判断。例如检测A是否为B的示例，A instanceof B,如果A是B的实例就返回true，否则返回false。[] instanceof Array 返回true，但是，由于Array是Object的一个子类，也可以说[]是一个对象，以上例子可以证明。<br> 这是因为[]的 <code>__proto__</code> 属性指向Array的prototype，而<code>Array.prototype.__proto__</code> 又指向<code>Object.prototype</code>,<code>Object.prototype.__proto__</code>指向<code>null</code>，标志着原型链结束。</p>
 </li>
 <li><p>Object.prototype.toString.call(xxx)</p>
 <p> 这个是最靠谱的一个方法了。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]) <span class="comment">// "[object Array]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;) <span class="comment">//  "[object Object]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">12</span>) <span class="comment">// "[object Number]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">'[]'</span>) <span class="comment">// "[object String]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>) <span class="comment">// "[object Null]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>) <span class="comment">// "[object Undefined]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>) <span class="comment">// "[object Boolean]"</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([]))   <span class="comment">// "[object Array]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;))  <span class="comment">// "[object Object]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="number">12</span>))  <span class="comment">//"[object Number]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="string">'[]'</span>)) <span class="comment">// "[object String]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>)) <span class="comment">//"[object Null]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>))  <span class="comment">//"[object Undefined]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>))  <span class="comment">//"[object Boolean]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;))  <span class="comment">//"[object Function]"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -822,7 +824,7 @@
 </div>
 <div class="theme-info">
   
-  <span class="post-count">博客全站共15.3k字</span>
+  <span class="post-count">博客全站共15.4k字</span>
 </div>
         
 
